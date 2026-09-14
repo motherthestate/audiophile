@@ -1,330 +1,919 @@
-<meta charset="utf-8">
+<meta charset="utf-8" />
 <!-- If this markup is pasted into a page whose theme already emits charset /
      viewport (WordPress does), these two <meta> lines can be dropped. -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Salon Hi-Fi &amp; Home Cinema 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+/>
 
 <style>
-/* ==========================================================
+  /* ==========================================================
    Salon Hi-Fi & Home Cinema — 24 & 25 octobre 2026
    Scoped to #salon26: drops into the existing page without
    touching header / footer styles.
    ========================================================== */
 
-#salon26{
-  --orange:      #F09818;   /* taken from the show poster */
-  --orange-text: #B0700A;   /* same hue, legible at small sizes on white */
-  --ink:         #252531;   /* site heading colour */
-  --body:        #3B3D42;   /* site body colour */
-  --grey:        #7C8088;
-  --rule:        #E2E2E4;
-  --wash:        #F6F6F7;
+  #salon26 {
+    --orange: #f09818; /* taken from the show poster */
+    --orange-text: #b0700a; /* same hue, legible at small sizes on white */
+    --ink: #252531; /* site heading colour */
+    --body: #3b3d42; /* site body colour */
+    --grey: #7c8088;
+    --rule: #e2e2e4;
+    --wash: #f6f6f7;
 
-  --col: 1140px;
-  --gap: clamp(20px, 4vw, 40px);
+    --col: 1140px;
+    --gap: clamp(20px, 4vw, 40px);
 
-  max-width: var(--col);
-  margin-inline: auto;
-  padding-inline: clamp(16px, 4vw, 24px);
-  font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.7;
-  color: var(--body);
-  background: #fff;
-}
-#salon26 *, #salon26 *::before, #salon26 *::after{ box-sizing: border-box; }
+    max-width: var(--col);
+    margin-inline: auto;
+    padding-inline: clamp(16px, 4vw, 24px);
+    font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--body);
+    background: #fff;
+  }
+  #salon26 *,
+  #salon26 *::before,
+  #salon26 *::after {
+    box-sizing: border-box;
+  }
 
-/* Smooth in-page jumps from the contents list. If the theme's header is ever
+  /* Smooth in-page jumps from the contents list. If the theme's header is ever
    made sticky, set --anchor-offset to its height so headings clear it. */
-html{ scroll-behavior: smooth; }
-#salon26 section[id]{ scroll-margin-top: var(--anchor-offset, 28px); }
-@media (prefers-reduced-motion: reduce){ html{ scroll-behavior: auto; } }
-#salon26 img{ display: block; max-width: 100%; }
-#salon26 figure{ margin: 0; }
-#salon26 a{ color: inherit; }
-#salon26 :focus-visible{ outline: 2px solid var(--orange); outline-offset: 2px; }
+  html {
+    scroll-behavior: smooth;
+  }
+  #salon26 section[id] {
+    scroll-margin-top: var(--anchor-offset, 28px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  #salon26 img {
+    display: block;
+    max-width: 100%;
+  }
+  #salon26 figure {
+    margin: 0;
+  }
+  #salon26 a {
+    color: inherit;
+  }
+  #salon26 :focus-visible {
+    outline: 2px solid var(--orange);
+    outline-offset: 2px;
+  }
 
-#salon26 h1, #salon26 h2, #salon26 h3, #salon26 h4{
-  color: var(--ink); margin: 0; font-weight: 500; line-height: 1.22;
-}
-#salon26 p{ margin: 0 0 1em; }
-#salon26 p:last-child{ margin-bottom: 0; }
+  #salon26 h1,
+  #salon26 h2,
+  #salon26 h3,
+  #salon26 h4 {
+    color: var(--ink);
+    margin: 0;
+    font-weight: 500;
+    line-height: 1.22;
+  }
+  #salon26 p {
+    margin: 0 0 1em;
+  }
+  #salon26 p:last-child {
+    margin-bottom: 0;
+  }
 
-/* small uppercase label, used for every eyebrow on the page */
-#salon26 .label{
-  font-size: 12px; font-weight: 500; line-height: 1.4;
-  letter-spacing: .13em; text-transform: uppercase;
-  color: var(--grey); margin: 0;
-}
-#salon26 .label--o{ color: var(--orange-text); }
+  /* small uppercase label, used for every eyebrow on the page */
+  #salon26 .label {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--grey);
+    margin: 0;
+  }
+  #salon26 .label--o {
+    color: var(--orange-text);
+  }
 
-/* ---------- motion ----------
+  /* ---------- motion ----------
    Headings reveal line by line from behind a mask; everything else rises and
    fades as it enters the viewport. Both initial states live inside
    @media (scripting: enabled) so the page is fully visible without JS. */
-@media (scripting: enabled){
-  #salon26 .ln{ display: block; overflow: hidden; margin-bottom: -.16em; padding-bottom: .16em; }
-  #salon26 .ln > span{
-    display: block; transform: translateY(115%);
-    transition: transform .9s cubic-bezier(.16, 1, .3, 1);
+  @media (scripting: enabled) {
+    #salon26 .ln {
+      display: block;
+      overflow: hidden;
+      margin-bottom: -0.16em;
+      padding-bottom: 0.16em;
+    }
+    #salon26 .ln > span {
+      display: block;
+      transform: translateY(115%);
+      transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #salon26 .is-in .ln > span {
+      transform: none;
+    }
+
+    #salon26 .rv {
+      opacity: 0;
+      transform: translateY(24px);
+      transition:
+        opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #salon26 .rv.is-in {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* a short stagger across each grid row */
+    #salon26 .systems > .rv:nth-child(3n + 2) {
+      transition-delay: 0.09s;
+    }
+    #salon26 .systems > .rv:nth-child(3n + 3) {
+      transition-delay: 0.18s;
+    }
+    #salon26 .configs--cine > .rv:nth-child(2) {
+      transition-delay: 0.07s;
+    }
+    #salon26 .configs--cine > .rv:nth-child(3) {
+      transition-delay: 0.14s;
+    }
+    #salon26 .configs--cine > .rv:nth-child(4) {
+      transition-delay: 0.21s;
+    }
   }
-  #salon26 .is-in .ln > span{ transform: none; }
-
-  #salon26 .rv{
-    opacity: 0; transform: translateY(24px);
-    transition: opacity .8s cubic-bezier(.16, 1, .3, 1), transform .8s cubic-bezier(.16, 1, .3, 1);
+  @media (prefers-reduced-motion: reduce) {
+    #salon26 .ln > span,
+    #salon26 .rv {
+      transition: none !important;
+      transform: none !important;
+      opacity: 1 !important;
+    }
   }
-  #salon26 .rv.is-in{ opacity: 1; transform: none; }
 
-  /* a short stagger across each grid row */
-  #salon26 .systems > .rv:nth-child(3n+2){ transition-delay: .09s; }
-  #salon26 .systems > .rv:nth-child(3n+3){ transition-delay: .18s; }
-  #salon26 .configs--cine > .rv:nth-child(2){ transition-delay: .07s; }
-  #salon26 .configs--cine > .rv:nth-child(3){ transition-delay: .14s; }
-  #salon26 .configs--cine > .rv:nth-child(4){ transition-delay: .21s; }
-}
-@media (prefers-reduced-motion: reduce){
-  #salon26 .ln > span, #salon26 .rv{
-    transition: none !important; transform: none !important; opacity: 1 !important;
+  /* ---------- 1. title block ----------
+     The masthead is the show's key art rebuilt in the page: the wordmark and
+     the date block are the supplied vector files, everything else is live
+     text on the artwork. The page's only <h1> is therefore read, not drawn —
+     it carries the full title for screen readers and search engines while the
+     design says it once, visually. */
+  #salon26 .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
   }
-}
+  #salon26 .head {
+    padding: clamp(20px, 4vw, 40px) 0 clamp(30px, 5vw, 50px);
+    border-bottom: 1px solid var(--rule);
+  }
+  #salon26 .head__eyebrow {
+    margin: 0 0 14px;
+  }
 
-/* ---------- 1. title block ---------- */
-#salon26 .head{
-  display: grid; gap: var(--gap); grid-template-columns: minmax(0, 1fr);
-  padding: clamp(28px, 5vw, 52px) 0 clamp(30px, 5vw, 50px);
-  border-bottom: 1px solid var(--rule);
-}
-@media (min-width: 880px){
-  #salon26 .head{ grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); align-items: center; }
-}
-#salon26 .head h1{
-  font-size: clamp(1.9rem, 4.4vw, 3rem); font-weight: 700; letter-spacing: -.015em;
-  margin: 14px 0 0;
-}
-#salon26 .head__when{
-  margin: 22px 0 0; padding: 16px 0 0; border-top: 3px solid var(--orange);
-  display: grid; gap: 2px;
-}
-#salon26 .head__when b{
-  font-size: clamp(1.15rem, 2.4vw, 1.5rem); font-weight: 500; color: var(--ink); line-height: 1.3;
-}
-#salon26 .head__when span{ color: var(--grey); }
-#salon26 .head__poster{ background: var(--wash); }
-#salon26 .head__poster img{ width: 100%; }
+  #salon26 .poster {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto 1fr;
+    gap: clamp(26px, 5vw, 38px);
+    padding: clamp(24px, 4.5vw, 52px);
+    min-height: clamp(400px, 92vw, 520px);
+    color: #fff;
+    overflow: hidden;
+    /* the halftone key-art sits over a matching wash, so the block still
+       reads as intended on a slow connection or if the file is missing */
+    background-color: #08080a;
+    background-image:
+      /* a light scrim over the key side of the frame: the artwork is already
+         near-black there, this only guarantees it stays that way once the
+         photo is cropped for a narrow screen */
+      linear-gradient(98deg, rgba(4, 4, 6, 0.74) 0%, rgba(4, 4, 6, 0.4) 46%, rgba(4, 4, 6, 0) 80%),
+      url('assets/salon-bg.png'), radial-gradient(120% 95% at 76% 16%, #1a1a20 0%, #08080a 62%);
+    background-size: auto, cover, auto;
+    background-position: center, center, center;
+    background-repeat: no-repeat;
+  }
+  #salon26 .poster svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  #salon26 .poster__mark {
+    width: min(74%, 268px);
+  }
+  #salon26 .poster__dates {
+    width: min(52%, 196px);
+    color: var(--orange);
+  }
+  #salon26 .poster__year {
+    margin: 8px 0 0;
+    font-size: clamp(0.8rem, 1.4vw, 1rem);
+    font-weight: 500;
+    letter-spacing: 0.34em;
+    text-indent: 0.34em;
+    text-align: right;
+    color: var(--orange);
+  }
+  #salon26 .poster__venue {
+    margin: 0;
+    font-size: clamp(1.05rem, 2.2vw, 1.45rem);
+    font-weight: 500;
+    line-height: 1.3;
+    color: #fff;
+  }
+  #salon26 .poster__tag {
+    margin: clamp(12px, 2vw, 20px) 0 0;
+    font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.72);
+  }
+  @media (min-width: 760px) {
+    #salon26 .poster {
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      grid-template-rows: auto 1fr;
+      aspect-ratio: 2048 / 1073;
+      min-height: 0;
+    }
+    #salon26 .poster__mark {
+      width: clamp(178px, 26vw, 300px);
+    }
+    #salon26 .poster__dates {
+      grid-column: 2;
+      grid-row: 1;
+      justify-self: end;
+      width: clamp(132px, 20vw, 236px);
+    }
+    #salon26 .poster__info {
+      grid-column: 1;
+      grid-row: 2;
+      align-self: end;
+    }
+  }
 
-/* ---------- 2. intro + practical info ---------- */
-#salon26 .intro{
-  display: grid; gap: var(--gap); grid-template-columns: minmax(0, 1fr);
-  padding: clamp(30px, 5vw, 52px) 0;
-  border-bottom: 1px solid var(--rule);
-}
-@media (min-width: 880px){
-  #salon26 .intro{ grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); }
-}
-#salon26 .intro__lead{
-  font-size: clamp(1.05rem, 2vw, 1.25rem); line-height: 1.55; color: var(--ink); font-weight: 400;
-}
-#salon26 .intro__body{ max-width: 62ch; }
+  /* ---------- 2. intro + practical info ---------- */
+  #salon26 .intro {
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: minmax(0, 1fr);
+    padding: clamp(30px, 5vw, 52px) 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  @media (min-width: 880px) {
+    #salon26 .intro {
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    }
+  }
+  #salon26 .intro__lead {
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    line-height: 1.55;
+    color: var(--ink);
+    font-weight: 400;
+  }
+  #salon26 .intro__body {
+    max-width: 62ch;
+  }
 
-#salon26 .infos{ background: var(--wash); padding: clamp(20px, 3vw, 28px); align-self: start; }
-#salon26 .infos__intro{ margin: 12px 0 0; font-size: .94rem; color: var(--grey); }
-#salon26 .infos address{ font-style: normal; margin: 14px 0 0; color: var(--ink); line-height: 1.6; }
-#salon26 .infos__qr{ display: flex; gap: 18px; align-items: center; margin-top: 20px; flex-wrap: wrap; }
-#salon26 .infos__qr img{ width: 104px; height: 104px; background: #fff; }
+  #salon26 .infos {
+    background: var(--wash);
+    padding: clamp(20px, 3vw, 28px);
+    align-self: start;
+  }
+  #salon26 .infos__intro {
+    margin: 12px 0 0;
+    font-size: 0.94rem;
+    color: var(--grey);
+  }
+  #salon26 .infos address {
+    font-style: normal;
+    margin: 14px 0 0;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  #salon26 .infos__qr {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  #salon26 .infos__qr img {
+    width: 104px;
+    height: 104px;
+    background: #fff;
+  }
 
-#salon26 .lnk{
-  display: inline-block; color: var(--ink); text-decoration: none;
-  border-bottom: 2px solid var(--orange); padding-bottom: 2px;
-  font-weight: 500; transition: color .18s ease;
-}
-#salon26 .lnk:hover{ color: var(--orange-text); }
+  #salon26 .lnk {
+    display: inline-block;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 2px solid var(--orange);
+    padding-bottom: 2px;
+    font-weight: 500;
+    transition: color 0.18s ease;
+  }
+  #salon26 .lnk:hover {
+    color: var(--orange-text);
+  }
 
-/* table of contents — plain list, no chrome */
-#salon26 .toc{ margin: clamp(26px, 4vw, 40px) 0 0; padding: 0; list-style: none; display: grid; gap: 2px; }
-#salon26 .toc li{ border-top: 1px solid var(--rule); }
-#salon26 .toc li:last-child{ border-bottom: 1px solid var(--rule); }
-#salon26 .toc a{
-  display: flex; align-items: center; justify-content: space-between; gap: 18px;
-  padding: 11px 0;
-  text-decoration: none; color: var(--ink); transition: color .18s ease;
-}
-#salon26 .toc a:hover{ color: var(--orange-text); }
-#salon26 .toc svg{
-  width: 16px; height: 16px; flex: none; color: var(--grey);
-  transition: color .18s ease, transform .18s ease;
-}
-#salon26 .toc a:hover svg,
-#salon26 .toc a:focus-visible svg{ color: var(--orange); transform: translateX(3px); }
-@media (prefers-reduced-motion: reduce){
-  #salon26 .toc svg{ transition: color .18s ease; }
-  #salon26 .toc a:hover svg{ transform: none; }
-}
+  /* table of contents — plain list, no chrome */
+  #salon26 .toc {
+    margin: clamp(26px, 4vw, 40px) 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 2px;
+  }
+  #salon26 .toc li {
+    border-top: 1px solid var(--rule);
+  }
+  #salon26 .toc li:last-child {
+    border-bottom: 1px solid var(--rule);
+  }
+  #salon26 .toc a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 11px 0;
+    text-decoration: none;
+    color: var(--ink);
+    transition: color 0.18s ease;
+  }
+  #salon26 .toc a:hover {
+    color: var(--orange-text);
+  }
+  #salon26 .toc svg {
+    width: 16px;
+    height: 16px;
+    flex: none;
+    color: var(--grey);
+    transition:
+      color 0.18s ease,
+      transform 0.18s ease;
+  }
+  #salon26 .toc a:hover svg,
+  #salon26 .toc a:focus-visible svg {
+    color: var(--orange);
+    transform: translateX(3px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #salon26 .toc svg {
+      transition: color 0.18s ease;
+    }
+    #salon26 .toc a:hover svg {
+      transform: none;
+    }
+  }
 
-/* ---------- sections ---------- */
-#salon26 .part{ padding: clamp(40px, 6vw, 72px) 0; border-bottom: 1px solid var(--rule); }
-#salon26 .part__head{ max-width: 68ch; margin-bottom: clamp(28px, 4vw, 44px); }
-#salon26 .part__head h2{
-  font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 700; letter-spacing: -.01em; margin: 10px 0 0;
-}
-#salon26 .part__head p{ margin-top: 14px; }
+  /* ---------- sections ---------- */
+  #salon26 .part {
+    padding: clamp(40px, 6vw, 72px) 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  #salon26 .part__head {
+    max-width: 68ch;
+    margin-bottom: clamp(28px, 4vw, 44px);
+  }
+  #salon26 .part__head h2 {
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 10px 0 0;
+  }
+  #salon26 .part__head p {
+    margin-top: 14px;
+  }
 
-/* ---------- B&W feature ---------- */
-#salon26 .feature{ display: grid; gap: var(--gap); grid-template-columns: minmax(0, 1fr); margin-bottom: clamp(36px, 5vw, 60px); }
-@media (min-width: 900px){
-  #salon26 .feature{ grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
-}
-#salon26 .feature__pics{ display: grid; gap: 10px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-#salon26 .feature__pics a, #salon26 .feature__pics span{ display: block; background: var(--wash); overflow: hidden; }
-#salon26 .feature__pics .big{ grid-column: 1 / -1; }
-#salon26 .feature__pics img{ width: 100%; aspect-ratio: 1; object-fit: cover; transition: opacity .25s ease; }
-#salon26 .feature__pics .big img{ aspect-ratio: 16 / 10; }
-#salon26 .feature__pics a:hover img{ opacity: .86; }
-#salon26 .feature__badge{
-  display: inline-block; margin: 0 0 12px;
-  background: var(--orange); color: #fff; padding: 5px 9px;
-}
-#salon26 .feature h3{ font-size: clamp(1.3rem, 2.6vw, 1.75rem); font-weight: 700; margin: 0 0 14px; }
+  /* ---------- B&W feature ---------- */
+  #salon26 .feature {
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: minmax(0, 1fr);
+    margin-bottom: clamp(36px, 5vw, 60px);
+  }
+  @media (min-width: 900px) {
+    #salon26 .feature {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      align-items: start;
+    }
+  }
+  #salon26 .feature__pics {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  #salon26 .feature__pics span {
+    display: block;
+    background: var(--wash);
+    overflow: hidden;
+  }
+  #salon26 .feature__pics .big {
+    grid-column: 1 / -1;
+  }
+  #salon26 .feature__pics img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+  #salon26 .feature__pics .big img {
+    aspect-ratio: 16 / 10;
+  }
+  #salon26 .feature__badge {
+    display: inline-block;
+    margin: 0 0 12px;
+    background: var(--orange);
+    color: #fff;
+    padding: 5px 9px;
+  }
+  #salon26 .feature h3 {
+    font-size: clamp(1.3rem, 2.6vw, 1.75rem);
+    font-weight: 700;
+    margin: 0 0 14px;
+  }
 
-#salon26 .configs{ list-style: none; margin: 24px 0 0; padding: 0; }
-#salon26 .configs > li{ border-top: 1px solid var(--rule); padding: 18px 0; }
-#salon26 .configs > li:last-child{ border-bottom: 1px solid var(--rule); }
-#salon26 .configs h4{ font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
-#salon26 .configs--cine{ margin-top: 18px; max-width: 60ch; }
-#salon26 .configs--cine > li{ padding: 13px 0; }
-#salon26 .configs--cine h4{ font-weight: 500; margin-bottom: 0; }
-#salon26 .configs p{ font-size: .95rem; color: var(--grey); margin: 10px 0 0; }
+  #salon26 .configs {
+    list-style: none;
+    margin: 24px 0 0;
+    padding: 0;
+  }
+  #salon26 .configs > li {
+    border-top: 1px solid var(--rule);
+    padding: 18px 0;
+  }
+  #salon26 .configs > li:last-child {
+    border-bottom: 1px solid var(--rule);
+  }
+  #salon26 .configs h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  #salon26 .configs--cine {
+    margin-top: 18px;
+    max-width: 60ch;
+  }
+  #salon26 .configs--cine > li {
+    padding: 13px 0;
+  }
+  #salon26 .configs--cine h4 {
+    font-weight: 500;
+    margin-bottom: 0;
+  }
+  #salon26 .configs p {
+    font-size: 0.95rem;
+    color: var(--grey);
+    margin: 10px 0 0;
+  }
 
-/* ---------- spec list ---------- */
-#salon26 .spec{ list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; }
-#salon26 .spec li{ display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 12px; align-items: baseline; }
-#salon26 .spec .k{
-  font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
-  color: var(--grey); line-height: 1.9;
-}
-#salon26 .spec .v{ font-size: .95rem; line-height: 1.5; color: var(--ink); }
-#salon26 .spec li:not(:has(.k)){ grid-template-columns: minmax(0, 1fr); padding-left: 14px; position: relative; }
-#salon26 .spec li:not(:has(.k))::before{
-  content: "—"; position: absolute; left: 0; top: 0; color: var(--grey); font-size: .9rem;
-}
-#salon26 .sys__lead{ margin: 0 0 10px; font-size: .95rem; color: var(--ink); }
-@media (max-width: 520px){
-  #salon26 .spec li{ grid-template-columns: 1fr; gap: 0; }
-  #salon26 .spec .k{ line-height: 1.6; }
-}
+  /* ---------- spec list ---------- */
+  #salon26 .spec {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 7px;
+  }
+  #salon26 .spec li {
+    display: grid;
+    grid-template-columns: 130px minmax(0, 1fr);
+    gap: 12px;
+    align-items: baseline;
+  }
+  #salon26 .spec .k {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--grey);
+    line-height: 1.9;
+  }
+  #salon26 .spec .v {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  #salon26 .spec li:not(:has(.k)) {
+    grid-template-columns: minmax(0, 1fr);
+    padding-left: 14px;
+    position: relative;
+  }
+  #salon26 .spec li:not(:has(.k))::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--grey);
+    font-size: 0.9rem;
+  }
+  #salon26 .sys__lead {
+    margin: 0 0 10px;
+    font-size: 0.95rem;
+    color: var(--ink);
+  }
+  @media (max-width: 520px) {
+    #salon26 .spec li {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    #salon26 .spec .k {
+      line-height: 1.6;
+    }
+  }
 
-#salon26 .systems__hint{ margin: 0 0 18px; color: var(--grey); }
+  /* ---------- system grid ---------- */
+  #salon26 .systems {
+    display: grid;
+    gap: clamp(30px, 4vw, 46px) var(--gap);
+    grid-template-columns: minmax(0, 1fr);
+  }
+  @media (min-width: 620px) {
+    #salon26 .systems {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (min-width: 1000px) {
+    #salon26 .systems {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
 
-/* ---------- system grid ---------- */
-#salon26 .systems{ display: grid; gap: clamp(30px, 4vw, 46px) var(--gap); grid-template-columns: minmax(0, 1fr); }
-@media (min-width: 620px){ #salon26 .systems{ grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (min-width: 1000px){ #salon26 .systems{ grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  #salon26 .sys {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+  }
+  #salon26 .sys__pic {
+    display: block;
+    background: var(--wash);
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 4 / 3;
+    text-decoration: none;
+  }
+  #salon26 .sys__pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  /* studio shots on a white ground: shown whole, on white, so nothing boxes them in */
+  #salon26 .sys__pic--fit {
+    background: #fff;
+    border: 1px solid var(--rule);
+  }
+  #salon26 .sys__pic--fit img {
+    object-fit: contain;
+    padding: 5%;
+  }
 
-#salon26 .sys{ display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); align-content: start; }
-#salon26 .sys__pic{
-  display: block; background: var(--wash); overflow: hidden; position: relative;
-  aspect-ratio: 4 / 3; text-decoration: none;
-}
-#salon26 .sys__pic img{ width: 100%; height: 100%; object-fit: cover; transition: opacity .25s ease; }
-/* studio shots on a white ground: shown whole, on white, so nothing boxes them in */
-#salon26 .sys__pic--fit{ background: #fff; border: 1px solid var(--rule); }
-#salon26 .sys__pic--fit img{ object-fit: contain; padding: 5%; }
-
-/* A system shown through two or three photographs. The block keeps the same
+  /* A system shown through two or three photographs. The block keeps the same
    4:3 footprint as a single photo so every caption in the row starts level. */
-#salon26 .sys__pics{ display: grid; gap: 8px; aspect-ratio: 4 / 3; }
-#salon26 .sys__pics.row{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-#salon26 .sys__pics--stack{ grid-template-rows: 1.45fr 1fr; }
-#salon26 .sys__pics--stack .row{ display: grid; gap: 8px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-#salon26 .sys__pics .sys__pic{ aspect-ratio: auto; height: 100%; }
-#salon26 a.sys__pic:hover img{ opacity: .86; }
-#salon26 .sys__pic .more{
-  position: absolute; left: 0; bottom: 0;
-  background: var(--orange); color: #fff;
-  font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
-  padding: 5px 9px; opacity: 0; transition: opacity .25s ease;
-}
-#salon26 a.sys__pic:hover .more, #salon26 a.sys__pic:focus-visible .more{ opacity: 1; }
-#salon26 .sys__pic--none{
-  display: grid; place-content: center; text-align: center; gap: 8px; padding: 24px;
-  border: 1px solid var(--rule); background: #fff;
-}
-#salon26 .sys__pic--none b{ color: var(--ink); font-size: 1.1rem; font-weight: 500; line-height: 1.35; }
-#salon26 .sys h3{ font-size: 1.15rem; font-weight: 700; margin: 6px 0 12px; }
-#salon26 .sys__note{ margin: 12px 0 0; font-size: .92rem; color: var(--grey); }
+  #salon26 .sys__pics {
+    display: grid;
+    gap: 8px;
+    aspect-ratio: 4 / 3;
+  }
+  #salon26 .sys__pics.row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  #salon26 .sys__pics--stack {
+    grid-template-rows: 1.45fr 1fr;
+  }
+  #salon26 .sys__pics--stack .row {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  #salon26 .sys__pics .sys__pic {
+    aspect-ratio: auto;
+    height: 100%;
+  }
+  #salon26 .sys__pic--none {
+    display: grid;
+    place-content: center;
+    text-align: center;
+    gap: 8px;
+    padding: 24px;
+    border: 1px solid var(--rule);
+    background: #fff;
+  }
+  #salon26 .sys__pic--none b {
+    color: var(--ink);
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.35;
+  }
+  #salon26 .sys h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 6px 0 12px;
+  }
+  #salon26 .sys__note {
+    margin: 12px 0 0;
+    font-size: 0.92rem;
+    color: var(--grey);
+  }
 
-/* ---------- home cinema ---------- */
-#salon26 .cine{ display: grid; gap: var(--gap); grid-template-columns: minmax(0, 1fr); align-items: start; }
-@media (min-width: 820px){ #salon26 .cine{ grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
-#salon26 .cine__pic{ background: var(--wash); display: grid; place-items: center; padding: 6%; }
-#salon26 .cine__pic img{ width: 100%; }
-#salon26 .cine__scale{
-  margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--rule);
-  display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
-}
-#salon26 .cine__scale b{ font-size: 2rem; font-weight: 300; color: var(--ink); line-height: 1; }
-#salon26 .cine__scale i{ font-style: normal; color: var(--orange); font-size: 1.2rem; }
-#salon26 .cine__scale span{ font-size: .92rem; color: var(--grey); max-width: 28ch; }
-#salon26 .cine__intro{ margin: clamp(30px, 4vw, 46px) 0 0; max-width: 62ch; }
-#salon26 .cine__outro{ margin: clamp(22px, 3vw, 32px) 0 0; max-width: 62ch; color: var(--grey); }
+  /* Cards whose system has a manufacturer page carry one plainly labelled link,
+   so the destination is named instead of hidden behind the photograph. */
+  #salon26 .sys__link {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 16px;
+    padding: 9px 15px;
 
-/* ---------- closing ---------- */
-#salon26 .close{ padding: clamp(36px, 5vw, 60px) 0 clamp(28px, 4vw, 44px); }
-#salon26 .close p{
-  font-size: clamp(1.1rem, 2.2vw, 1.4rem); line-height: 1.5; color: var(--ink);
-  max-width: 46ch; margin-bottom: 18px;
-}
-#salon26 .close__sub{ font-size: 1rem !important; color: var(--grey); max-width: 52ch; }
-#salon26 .close__soon{ margin-top: 26px; }
-#salon26 .back{
-  display: inline-block; margin-top: 26px; font-size: 12px; font-weight: 500;
-  letter-spacing: .13em; text-transform: uppercase; color: var(--grey);
-  text-decoration: none; transition: color .18s ease;
-}
-#salon26 .back:hover{ color: var(--orange-text); }
+    background: #ebebeb;
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--ink);
+    border-radius: 4px;
+    text-decoration: none;
+    transition:
+      border-color 0.18s ease,
+      color 0.18s ease;
+  }
+  #salon26 .sys__link svg {
+    width: 18px;
+    height: 18px;
+    flex: none;
+    color: var(--orange);
+    transition: transform 0.18s ease;
+    margin: 0px 0px 0px auto;
+  }
+  #salon26 .sys__link:hover {
+    border-color: var(--orange);
+    color: var(--orange-text);
+  }
+  #salon26 .sys__link:hover svg {
+    transform: translate(2px, -2px);
+  }
+
+  /* ---------- home cinema ---------- */
+  #salon26 .cine {
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+  @media (min-width: 820px) {
+    #salon26 .cine {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+  }
+  #salon26 .cine__pic {
+    background: var(--wash);
+    display: grid;
+    place-items: center;
+    padding: 6%;
+  }
+  #salon26 .cine__pic img {
+    width: 100%;
+  }
+  #salon26 .cine__scale {
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  #salon26 .cine__scale b {
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1;
+  }
+  #salon26 .cine__scale i {
+    font-style: normal;
+    color: var(--orange);
+    font-size: 1.2rem;
+  }
+  #salon26 .cine__scale span {
+    font-size: 0.92rem;
+    color: var(--grey);
+    max-width: 28ch;
+  }
+  #salon26 .cine__intro {
+    margin: clamp(30px, 4vw, 46px) 0 0;
+    max-width: 62ch;
+  }
+  #salon26 .cine__outro {
+    margin: clamp(22px, 3vw, 32px) 0 0;
+    max-width: 62ch;
+    color: var(--grey);
+  }
+
+  /* ---------- closing ---------- */
+  #salon26 .close {
+    padding: clamp(36px, 5vw, 60px) 0 clamp(28px, 4vw, 44px);
+  }
+  #salon26 .close p {
+    font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+    line-height: 1.5;
+    color: var(--ink);
+    max-width: 46ch;
+    margin-bottom: 18px;
+  }
+  #salon26 .close__sub {
+    font-size: 1rem !important;
+    color: var(--grey);
+    max-width: 52ch;
+  }
+  #salon26 .close__soon {
+    margin-top: 26px;
+  }
+  #salon26 .back {
+    display: inline-block;
+    margin-top: 26px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--grey);
+    text-decoration: none;
+    transition: color 0.18s ease;
+  }
+  #salon26 .back:hover {
+    color: var(--orange-text);
+  }
 </style>
 
 <div id="salon26">
-
   <!-- ═══ TITRE ═══════════════════════════════════════════ -->
   <header class="head">
-    <div>
-      <p class="label label--o rv">Save the date &mdash; l'Audiophile</p>
-      <h1 data-lines>Salon Hi-Fi &amp; Home Cinema</h1>
-      <div class="head__when rv">
-        <b>Les 24 &amp; 25 octobre 2026</b>
-        <span>Novotel Luxembourg Kirchberg</span>
+    <!-- The key art below states the title; this is its readable twin. -->
+    <h1 class="sr-only">
+      Salon Hi-Fi &amp; Home Cinema &mdash; 24 &amp; 25 octobre 2026, Novotel Luxembourg-Kirchberg
+    </h1>
+
+    <p class="label label--o head__eyebrow rv">Save the date &mdash; l'Audiophile</p>
+
+    <div class="poster rv">
+      <div class="poster__mark">
+        <svg
+          viewBox="0 0 424 341"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            d="M40.7919 92.1627C10.5099 92.1627 1.87873 78.9966 0.269531 65.0991L25.2852 59.6864C27.1869 68.3175 34.0626 71.3896 41.9622 71.3896C48.9841 71.3896 52.934 69.7804 52.934 65.8305C52.934 61.4418 49.8619 58.8086 34.0626 56.3217C9.6321 52.6644 2.17131 42.863 2.17131 27.5026C2.17131 9.80143 14.4597 0 40.0604 0C65.2223 0 75.4626 10.8255 77.5107 25.4545L51.3248 30.4284C49.8619 23.5527 47.0824 20.0418 38.5975 20.0418C31.5756 20.0418 28.211 22.0898 28.211 26.1859C28.211 29.6969 29.5276 32.4764 45.4732 35.1096C73.9997 39.9372 79.4125 51.0552 79.4125 64.2213C79.4125 81.9224 67.8556 92.1627 40.7919 92.1627ZM144.4 89.9684L140.158 74.0228H110.754L106.365 89.9684H79.3016L107.681 2.19434H144.254L172.634 89.9684H144.4ZM119.092 44.3259L116.02 55.1514H135.038L132.112 44.3259C130.356 37.7429 128.601 31.1598 127.138 24.723H124.212C122.603 31.1598 120.848 37.7429 119.092 44.3259ZM202.968 2.19434V66.562H238.37V89.9684H176.636V2.19434H202.968ZM283.338 92.1627C254.665 92.1627 238.427 74.7542 238.427 45.7888C238.427 16.8234 255.981 0 283.338 0C311.133 0 328.249 16.8234 328.249 45.7888C328.249 74.7542 312.01 92.1627 283.338 92.1627ZM283.191 69.7804C296.943 69.7804 302.063 61.003 302.063 45.6425C302.063 31.5987 296.943 22.8213 283.338 22.8213C269.733 22.8213 264.613 31.745 264.613 45.6425C264.613 60.8567 269.733 69.7804 283.191 69.7804ZM386.947 89.9684L374.366 61.4418C371.001 53.6885 365.296 38.0354 361.346 25.8934L359.737 26.0396C360.615 39.6446 361.493 58.2235 361.493 67.7323V89.9684H337.355V2.19434H374.22L384.753 25.6008C389.288 35.6948 394.408 50.909 397.48 62.027L399.235 61.7344C398.211 49.0072 397.48 34.3782 397.48 25.3082V2.19434H421.618V89.9684H386.947ZM85.4104 185.778H59.0781V153.887H29.8201V185.778H3.48792V98.004H29.8201V130.334H59.0781V98.004H85.4104V185.778ZM123.68 185.778H97.3478V98.004H123.68V185.778ZM131.831 138.526H178.643V161.201H131.831V138.526ZM250.854 161.786H213.111V185.778H186.779V98.004H253.78V122.142H213.111V139.258H250.854V161.786ZM289.399 185.778H263.067V98.004H289.399V185.778ZM335.732 120.971C335.732 124.044 336.61 127.555 338.219 131.065C345.972 128.286 350.069 124.629 350.069 118.923C350.069 115.412 347.582 112.926 343.193 112.926C337.78 112.926 335.732 116.436 335.732 120.971ZM395.418 161.786L396.442 185.924C392.346 186.802 388.25 186.802 384.739 186.802C373.914 186.802 363.235 183.145 353.579 177.439C348.313 183.876 337.78 187.241 325.784 187.241C309.4 187.241 296.526 179.341 296.526 162.957C296.526 149.644 305.158 142.622 317.153 137.795C314.374 131.797 312.765 125.945 312.765 121.264C312.765 102.685 327.832 95.956 342.608 95.956C362.65 95.956 371.281 104.441 371.281 116.29C371.281 132.236 356.213 136.771 343.193 139.111C347.728 145.256 354.311 150.961 361.772 155.203C367.916 146.865 371.866 137.649 374.206 127.408L396.15 130.627C393.37 143.939 386.641 153.302 376.401 161.055C379.765 161.786 383.13 162.225 386.641 162.225C388.397 162.225 392.054 162.079 395.418 161.786ZM333.684 169.247C336.902 169.247 339.097 168.955 340.999 168.369C332.953 161.494 326.223 153.302 321.249 145.402C319.201 148.474 318.324 152.131 318.324 156.227C318.324 163.103 321.981 169.247 333.684 169.247Z"
+            fill="white"
+          />
+          <path
+            d="M69.3132 262.014H47.8024V235.962H23.9015V262.014H2.39062V190.311H23.9015V216.722H47.8024V190.311H69.3132V262.014ZM113.363 263.806C89.9398 263.806 76.6748 249.585 76.6748 225.923C76.6748 202.262 91.0153 188.519 113.363 188.519C136.069 188.519 150.051 202.262 150.051 225.923C150.051 249.585 136.786 263.806 113.363 263.806ZM113.243 245.522C124.477 245.522 128.66 238.352 128.66 225.804C128.66 214.332 124.477 207.161 113.363 207.161C102.249 207.161 98.0661 214.451 98.0661 225.804C98.0661 238.232 102.249 245.522 113.243 245.522ZM177.208 235.723V262.014H157.49V190.311H191.907L198.361 214.212C199.556 218.634 201.468 227.119 203.26 235.842H204.814C206.487 227.119 208.518 218.156 209.714 213.375L215.808 190.311H247.596V262.014H226.086V235.723C226.086 226.64 226.564 216.483 226.922 207.639H225.369C223.218 217.319 220.588 228.314 217.123 239.666L211.387 258.548H192.027L186.53 239.069C183.184 227.119 180.674 217.08 178.523 207.639H176.969C177.208 216.483 177.208 226.64 177.208 235.723ZM257.388 262.014V190.311H314.512V208.834H278.898V218.395H312.121V233.572H278.898V243.491H314.512V262.014H257.388Z"
+            fill="white"
+            fill-opacity="0.8"
+          />
+          <path
+            d="M35.7319 340.042C13.3845 340.042 0 326.179 0 302.159C0 278.019 14.3406 264.754 36.3294 264.754C55.5696 264.754 67.1616 274.553 69.0737 293.196L48.5189 297.02C47.0848 287.938 43.7387 283.397 35.6124 283.397C25.2155 283.397 21.3913 292.001 21.3913 302.159C21.3913 314.348 25.335 321.758 35.4929 321.758C44.0972 321.758 46.9653 317.097 48.8774 307.895L69.1932 311.241C67.1616 329.884 55.0916 340.042 35.7319 340.042ZM98.3578 338.249H76.847V266.546H98.3578V338.249ZM148.636 338.249L138.358 314.946C135.61 308.612 130.949 295.825 127.723 285.906L126.408 286.026C127.125 297.14 127.842 312.317 127.842 320.085V338.249H108.124V266.546H138.239L146.843 285.667C150.548 293.913 154.731 306.341 157.24 315.424L158.674 315.185C157.838 304.788 157.24 292.837 157.24 285.428V266.546H176.958V338.249H148.636ZM186.781 338.249V266.546H243.905V285.07H208.292V294.63H241.515V309.807H208.292V319.726H243.905V338.249H186.781ZM272.671 311.958V338.249H252.953V266.546H287.37L293.824 290.447C295.019 294.869 296.931 303.354 298.723 312.078H300.277C301.95 303.354 303.981 294.391 305.176 289.611L311.271 266.546H343.059V338.249H321.549V311.958C321.549 302.876 322.027 292.718 322.385 283.875H320.832C318.68 293.554 316.051 304.549 312.586 315.902L306.85 334.784H287.49L281.993 315.304C278.646 303.354 276.137 293.315 273.986 283.875H272.432C272.671 292.718 272.671 302.876 272.671 311.958ZM399.458 338.249L395.993 325.223H371.972L368.387 338.249H346.279L369.463 266.546H399.339L422.523 338.249H399.458ZM378.784 300.964L376.274 309.807H391.81L389.42 300.964C387.986 295.586 386.552 290.208 385.357 284.95H382.967C381.652 290.208 380.218 295.586 378.784 300.964Z"
+            fill="white"
+            fill-opacity="0.57"
+          />
+        </svg>
       </div>
-    </div>
-    <div class="head__poster rv">
-      <img src="https://audiophile.lu/wp-content/uploads/2026/06/landscape-2048x1073.png" alt="Affiche du Salon Hi-Fi &amp; Home Cinema de l'Audiophile, 24 et 25 octobre 2026 au Novotel Luxembourg-Kirchberg." fetchpriority="high">
+
+      <div class="poster__dates">
+        <svg
+          viewBox="0 0 300 155"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <g clip-path="url(#salon-dates-clip)">
+            <path
+              d="M30.7173 4.59549C16.9308 4.59549 9.31194 12.0934 7.01417 28.5404L2.29775 27.573C4.95829 10.2794 14.0284 0 30.5963 0C45.955 0 54.4203 7.25605 54.4203 20.075C54.4203 33.4987 44.3828 39.3036 28.4195 44.7456C9.67474 51.1551 4.95829 55.9925 4.59549 69.8999C11.3678 69.5371 22.6147 69.1743 31.5638 69.1743H55.9925V73.7698H0V69.658C0 53.211 7.86071 46.8015 25.8799 40.8757C42.206 35.5546 49.3411 30.1126 49.3411 19.9541C49.3411 11.005 43.7781 4.59549 30.7173 4.59549ZM122.711 55.025H110.255V73.7698H105.176V55.025H59.4627V50.4295L105.176 1.20934H110.255V50.4295H122.711V55.025ZM88.3661 50.4295H105.176V8.10258L104.571 7.98164L65.5094 50.3086L66.1141 51.397C73.1282 50.7923 82.682 50.4295 88.3661 50.4295ZM128.545 42.085H164.825V47.1643H128.545V42.085ZM204.324 4.59549C190.538 4.59549 182.919 12.0934 180.621 28.5404L175.904 27.573C178.565 10.2794 187.635 0 204.203 0C219.562 0 228.027 7.25605 228.027 20.075C228.027 33.4987 217.99 39.3036 202.026 44.7456C183.281 51.1551 178.565 55.9925 178.202 69.8999C184.975 69.5371 196.221 69.1743 205.171 69.1743H229.599V73.7698H173.607V69.658C173.607 53.211 181.467 46.8015 199.487 40.8757C215.813 35.5546 222.948 30.1126 222.948 19.9541C222.948 11.005 217.385 4.59549 204.324 4.59549ZM270.462 70.3836C284.128 70.3836 291.263 64.8206 291.263 51.7598C291.263 40.271 284.37 35.1918 270.341 35.1918C262.239 35.1918 253.773 37.8524 250.024 40.5129L245.429 38.8198V1.20934H292.351V5.92577C273.244 5.92577 259.82 5.44204 250.145 5.07923V36.7639C254.62 33.4987 261.997 30.7172 271.067 30.7172C287.151 30.7172 296.342 37.2477 296.342 51.7598C296.342 67.844 285.821 74.9791 270.22 74.9791C255.224 74.9791 245.429 68.5696 239.019 54.2994L243.736 52.0016C248.573 63.4904 256.434 70.3836 270.462 70.3836ZM159.289 154.182C136.432 154.182 123.976 138.461 123.976 116.572C123.976 94.6828 136.553 79.2033 159.289 79.2033C181.903 79.2033 194.602 94.6828 194.602 116.572C194.602 138.461 182.024 154.182 159.289 154.182ZM159.289 149.466C179.606 149.466 189.522 135.679 189.522 116.572C189.522 97.3433 179.364 83.9197 159.289 83.9197C139.093 83.9197 129.055 97.3433 129.055 116.572C129.055 135.679 138.851 149.466 159.289 149.466ZM250.858 116.814C248.56 106.413 243.36 100.488 230.783 100.488C217.117 100.488 208.773 109.195 208.773 125.279C208.773 140.154 216.876 149.587 231.267 149.587C244.69 149.587 248.681 142.21 251.221 133.019L255.937 134.47C252.793 147.047 245.295 154.182 231.388 154.182C213.973 154.182 203.815 142.815 203.815 124.795C203.815 106.776 215.182 96.013 230.904 96.013C245.416 96.013 253.035 102.906 255.574 115.604L250.858 116.814ZM273.686 137.252V101.818H263.528V97.2224H273.686V80.4126H278.524V97.2224H299.204V101.818H278.524V137.493C278.524 145.475 281.668 149.708 289.166 149.708C292.673 149.708 294.971 149.345 298.841 148.257L299.687 152.489C296.18 153.578 293.036 154.182 288.924 154.182C278.524 154.182 273.686 147.41 273.686 137.252Z"
+              fill="currentColor"
+            />
+          </g>
+          <defs>
+            <clipPath id="salon-dates-clip">
+              <rect width="299.78" height="155" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+        <p class="poster__year">2026</p>
+      </div>
+
+      <div class="poster__info">
+        <p class="poster__venue">Novotel,<br />Luxembourg-Kirchberg</p>
+        <p class="poster__tag">It&rsquo;s all about Music<br />&hellip; and Movies</p>
+      </div>
     </div>
   </header>
 
   <!-- ═══ INTRO + INFOS PRATIQUES ═════════════════════════ -->
   <section class="intro">
     <div class="intro__body">
-      <p class="intro__lead rv">Les 24 &amp; 25 octobre 2026, l'Audiophile transforme le Novotel Luxembourg Kirchberg en un véritable temple du Son &amp; de l'Image.</p>
-      <p class="rv">À l'occasion de cette nouvelle édition de notre Salon Hi-Fi &amp; Home Cinema, nous vous invitons à vivre deux journées entièrement consacrées aux plus belles réalisations audiophiles et Home Cinema.</p>
-      <p class="rv">Vous pourrez découvrir, comparer et écouter des systèmes soigneusement sélectionnés et optimisés par notre équipe, dans des conditions de démonstration exceptionelles.</p>
+      <p class="intro__lead rv">
+        Les 24 &amp; 25 octobre 2026, l'Audiophile transforme le Novotel Luxembourg Kirchberg en un
+        véritable temple du Son &amp; de l'Image.
+      </p>
+      <p class="rv">
+        À l'occasion de cette nouvelle édition de notre Salon Hi-Fi &amp; Home Cinema, nous vous
+        invitons à vivre deux journées entièrement consacrées aux plus belles réalisations
+        audiophiles et Home Cinema.
+      </p>
+      <p class="rv">
+        Vous pourrez découvrir, comparer et écouter des systèmes soigneusement sélectionnés et
+        optimisés par notre équipe, dans des conditions de démonstration exceptionelles.
+      </p>
 
       <ul class="toc rv">
-        <li><a href="#part1"><span>Les grandes premières et les systèmes de référence</span><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h11M9.5 3.5 14 8l-4.5 4.5"/></svg></a></li>
-        <li><a href="#part2"><span>Nos coups de coeur</span><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h11M9.5 3.5 14 8l-4.5 4.5"/></svg></a></li>
-        <li><a href="#part3"><span>Une démonstration Home Cinema inédite</span><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h11M9.5 3.5 14 8l-4.5 4.5"/></svg></a></li>
+        <li>
+          <a href="#part1"
+            ><span>Les grandes premières et les systèmes de référence</span
+            ><svg
+              viewBox="0 0 16 16"
+              aria-hidden="true"
+              focusable="false"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M2.5 8h11M9.5 3.5 14 8l-4.5 4.5" /></svg
+          ></a>
+        </li>
+        <li>
+          <a href="#part2"
+            ><span>Nos coups de coeur</span
+            ><svg
+              viewBox="0 0 16 16"
+              aria-hidden="true"
+              focusable="false"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M2.5 8h11M9.5 3.5 14 8l-4.5 4.5" /></svg
+          ></a>
+        </li>
+        <li>
+          <a href="#part3"
+            ><span>Une démonstration Home Cinema inédite</span
+            ><svg
+              viewBox="0 0 16 16"
+              aria-hidden="true"
+              focusable="false"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M2.5 8h11M9.5 3.5 14 8l-4.5 4.5" /></svg
+          ></a>
+        </li>
       </ul>
     </div>
 
     <aside class="infos rv">
       <p class="label">Parkings &ndash; Adresse</p>
       <p class="infos__intro">Toutes les Infos ci-dessous dans le QR Code et/ou le lien.</p>
-      <address>6 rue Fort Niedergrünewald, Quartier Européen Nord, Plateau de Kirchberg, L-2226 LUXEMBOURG, Luxembourg</address>
+      <address>
+        6 rue Fort Niedergrünewald, Quartier Européen Nord, Plateau de Kirchberg, L-2226 LUXEMBOURG,
+        Luxembourg
+      </address>
       <div class="infos__qr">
-        <img loading="lazy" decoding="async" src="https://audiophile.lu/wp-content/uploads/2026/07/qrcode_all.accor_.com_-400x400.png" alt="QR code vers la page d'accès et de stationnement du Novotel Luxembourg Kirchberg.">
-        <a class="lnk" href="https://all.accor.com/hotel/1930/index.en.shtml?utm_campaign=seo+maps&amp;utm_medium=seo+maps&amp;utm_source=google+Maps#section-location" target="_blank" rel="noopener">Parkings &ndash; Adresse</a>
+        <img
+          loading="lazy"
+          decoding="async"
+          src="https://audiophile.lu/wp-content/uploads/2026/07/qrcode_all.accor_.com_-400x400.png"
+          alt="QR code vers la page d'accès et de stationnement du Novotel Luxembourg Kirchberg."
+        />
+        <a
+          class="lnk"
+          href="https://all.accor.com/hotel/1930/index.en.shtml?utm_campaign=seo+maps&amp;utm_medium=seo+maps&amp;utm_source=google+Maps#section-location"
+          target="_blank"
+          rel="noopener"
+          >Parkings &ndash; Adresse</a
+        >
       </div>
     </aside>
   </section>
@@ -338,98 +927,251 @@ html{ scroll-behavior: smooth; }
     <!-- Bowers & Wilkins 800 D5 -->
     <div class="feature rv">
       <div class="feature__pics">
-        <a class="big" href="https://www.bowerswilkins.com/en/category/loudspeakers/800-series-diamond-d5/" target="_blank" rel="noopener">
-          <img loading="lazy" decoding="async" src="assets/B%26W%20-%20801%20D5%20Dark%20Walnut%20-%20%20Lifestyle%201%20-%201x1.jpg" alt="Paire de Bowers &amp; Wilkins 801 D5 en noyer foncé installée dans un salon.">
-        </a>
-        <span><img loading="lazy" decoding="async" src="assets/B%26W%20-%20801%20D5%20Stealth%20Black%20-%20%20Lifestyle%205%20-%204x5.jpg" alt="Bowers &amp; Wilkins 801 D5 en finition Stealth Black, vue rapprochée."></span>
-        <span><img loading="lazy" decoding="async" src="assets/B%26W%20-%20801%20D5%20Dark%20Walnut%20-%20%20Lifestyle%203%20-%201x1.jpg" alt="Détail du médium et de la tête de la 801 D5 en noyer foncé."></span>
+        <span class="big">
+          <img
+            loading="lazy"
+            decoding="async"
+            src="assets/B%26W%20-%20801%20D5%20Dark%20Walnut%20-%20%20Lifestyle%201%20-%201x1.jpg"
+            alt="Paire de Bowers &amp; Wilkins 801 D5 en noyer foncé installée dans un salon."
+          />
+        </span>
+        <span
+          ><img
+            loading="lazy"
+            decoding="async"
+            src="assets/B%26W%20-%20801%20D5%20Stealth%20Black%20-%20%20Lifestyle%205%20-%204x5.jpg"
+            alt="Bowers &amp; Wilkins 801 D5 en finition Stealth Black, vue rapprochée."
+        /></span>
+        <span
+          ><img
+            loading="lazy"
+            decoding="async"
+            src="assets/B%26W%20-%20801%20D5%20Dark%20Walnut%20-%20%20Lifestyle%203%20-%201x1.jpg"
+            alt="Détail du médium et de la tête de la 801 D5 en noyer foncé."
+        /></span>
       </div>
 
       <div>
         <p class="label feature__badge">Nouveauté!</p>
         <h3>Bowers &amp; Wilkins Série 800 D5</h3>
-        <p>La toute nouvelle génération Bowers &amp; Wilkins Série 800 D5 sera présentée pour la première fois.</p>
+        <p>
+          La toute nouvelle génération Bowers &amp; Wilkins Série 800 D5 sera présentée pour la
+          première fois.
+        </p>
 
         <ol class="configs">
           <li>
             <h4>801 D5</h4>
-            <p>Les 801 D5 seront associées au LINN Klimax DSM/3 Organik et aux blocs mono LINN Klimax Solo 500, un ensemble conçu pour révéler tout le potentiel de ces nouveaux haut-parleurs de référence.</p>
+            <p>
+              Les 801 D5 seront associées au LINN Klimax DSM/3 Organik et aux blocs mono LINN Klimax
+              Solo 500, un ensemble conçu pour révéler tout le potentiel de ces nouveaux
+              haut-parleurs de référence.
+            </p>
           </li>
           <li>
             <h4>803 D5</h4>
-            <p>Les 803 D5 seront mises en œuvre avec l'ensemble Marantz MODEL 10, LINK 10 et SACD 10, reconnu pour sa musicalité, son raffinement et sa puissance.</p>
+            <p>
+              Les 803 D5 seront mises en œuvre avec l'ensemble Marantz MODEL 10, LINK 10 et SACD 10,
+              reconnu pour sa musicalité, son raffinement et sa puissance.
+            </p>
           </li>
           <li>
             <h4>805 D5</h4>
-            <p>Les 805 D5 évolueront dans une configuration intégrant Dirac Live Bass Control, avec les électroniques NAD M66 et NAD M23 v2, accompagnées de quatre caissons Bowers &amp; Wilkins DB2D, afin d'illustrer les performances des technologies modernes de correction acoustique.</p>
+            <p>
+              Les 805 D5 évolueront dans une configuration intégrant Dirac Live Bass Control, avec
+              les électroniques NAD M66 et NAD M23 v2, accompagnées de quatre caissons Bowers &amp;
+              Wilkins DB2D, afin d'illustrer les performances des technologies modernes de
+              correction acoustique.
+            </p>
           </li>
         </ol>
+
+        <a
+          class="sys__link"
+          href="https://www.bowerswilkins.com/en/category/loudspeakers/800-series-diamond-d5/"
+          target="_blank"
+          rel="noopener"
+          >Plus d'infos sur la Série 800 D5
+          <svg
+            viewBox="0 0 16 16"
+            aria-hidden="true"
+            focusable="false"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M5.5 10.5 10.5 5.5M6 5.5h4.5V10" /></svg
+        ></a>
       </div>
     </div>
 
-    <p class="label systems__hint rv">Click on the images for more infos &ndash; Cliquez sur les images pour plus d'infos</p>
-
     <div class="systems">
-
       <article class="sys rv">
-        <a class="sys__pic" href="https://www.raidho.dk/products/raidho-td3-10" target="_blank" rel="noopener">
-          <img loading="lazy" decoding="async" src="assets/RaidhoTD3.10.jpg" alt="Enceintes colonne Raidho TD3.10.">
-          <span class="more">Plus d'infos</span>
-        </a>
+        <span class="sys__pic">
+          <img
+            loading="lazy"
+            decoding="async"
+            src="assets/RaidhoTD3.10.jpg"
+            alt="Enceintes colonne Raidho TD3.10."
+          />
+        </span>
         <div>
           <h3>Raidho TD3.10</h3>
-          <p class="sys__note">Les nouvelles Raidho TD3.10 seront associées aux blocs mono Audio Analogue Absolute Mono 500 et à un ensemble MSB assurant le streaming et la conversion numérique-analogique.</p>
+          <p class="sys__note">
+            Les nouvelles Raidho TD3.10 seront associées aux blocs mono Audio Analogue Absolute Mono
+            500 et à un ensemble MSB assurant le streaming et la conversion numérique-analogique.
+          </p>
+          <a
+            class="sys__link"
+            href="https://www.raidho.dk/products/raidho-td3-10"
+            target="_blank"
+            rel="noopener"
+            >Plus d'infos sur les Raidho TD3.10
+            <svg
+              viewBox="0 0 16 16"
+              aria-hidden="true"
+              focusable="false"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M5.5 10.5 10.5 5.5M6 5.5h4.5V10" /></svg
+          ></a>
         </div>
       </article>
 
       <article class="sys rv">
         <div class="sys__pics sys__pics--stack">
-          <a class="sys__pic" href="https://wadax.eu/" target="_blank" rel="noopener">
-            <img loading="lazy" decoding="async" src="assets/WADAXstudio_collection1-1.jpg" alt="WADAX Studio Player, Studio PSU et Studio Clock empilés.">
-            <span class="more">Plus d'infos</span>
-          </a>
+          <span class="sys__pic">
+            <img
+              loading="lazy"
+              decoding="async"
+              src="assets/WADAXstudio_collection1-1.jpg"
+              alt="WADAX Studio Player, Studio PSU et Studio Clock empilés."
+            />
+          </span>
           <div class="row">
-            <span class="sys__pic"><img loading="lazy" decoding="async" src="assets/Dan_DAgostino_Master_Audio_Systems_Progression_Neo_Series_review_matej_isak_mono_and_stereo_2026_high_end_audiophile_luxury_audio_music_4.jpg" alt="Amplificateur de puissance Dan D'Agostino Progression NEO."></span>
-            <span class="sys__pic"><img loading="lazy" decoding="async" src="assets/Estelon%20Forza%20Ultra%20Petra%20Gold.jpg" alt="Paire d'enceintes Estelon Forza Ultra en finition Petra Gold."></span>
+            <span class="sys__pic"
+              ><img
+                loading="lazy"
+                decoding="async"
+                src="assets/Dan_DAgostino_Master_Audio_Systems_Progression_Neo_Series_review_matej_isak_mono_and_stereo_2026_high_end_audiophile_luxury_audio_music_4.jpg"
+                alt="Amplificateur de puissance Dan D'Agostino Progression NEO."
+            /></span>
+            <span class="sys__pic"
+              ><img
+                loading="lazy"
+                decoding="async"
+                src="assets/Estelon%20Forza%20Ultra%20Petra%20Gold.jpg"
+                alt="Paire d'enceintes Estelon Forza Ultra en finition Petra Gold."
+            /></span>
           </div>
         </div>
         <div>
           <h3>Wadax &bull; Dan D'Agostino &bull; Estelon</h3>
-          <p class="sys__note">Les WADAX Studio Player, Studio PSU et Studio Clock seront combinés au nouvel amplificateur de puissance Dan D'Agostino Progression NEO, afin de mettre en valeur des enceintes Estelon.</p>
+          <p class="sys__note">
+            Les WADAX Studio Player, Studio PSU et Studio Clock seront combinés au nouvel
+            amplificateur de puissance Dan D'Agostino Progression NEO, afin de mettre en valeur des
+            enceintes Estelon.
+          </p>
+          <a class="sys__link" href="https://wadax.eu/" target="_blank" rel="noopener"
+            >Plus d'infos sur Wadax
+            <svg
+              viewBox="0 0 16 16"
+              aria-hidden="true"
+              focusable="false"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M5.5 10.5 10.5 5.5M6 5.5h4.5V10" /></svg
+          ></a>
         </div>
       </article>
 
       <article class="sys rv">
-        <a class="sys__pic sys__pic--none" href="https://www.kiiaudio.com/" target="_blank" rel="noopener">
+        <span class="sys__pic sys__pic--none">
           <b>Kii THREE BXT</b>
-        </a>
+        </span>
         <div>
           <h3>Kii Audio</h3>
-          <p class="sys__note">Les Kii THREE BXT, références parmi les enceintes actives à directivité contrôlée, seront associées au streamer GRIMM AUDIO MU1.</p>
+          <p class="sys__note">
+            Les Kii THREE BXT, références parmi les enceintes actives à directivité contrôlée,
+            seront associées au streamer GRIMM AUDIO MU1.
+          </p>
+          <a class="sys__link" href="https://www.kiiaudio.com/" target="_blank" rel="noopener"
+            >Plus d'infos sur Kii Audio
+            <svg
+              viewBox="0 0 16 16"
+              aria-hidden="true"
+              focusable="false"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M5.5 10.5 10.5 5.5M6 5.5h4.5V10" /></svg
+          ></a>
         </div>
       </article>
 
       <article class="sys rv">
         <span class="sys__pic sys__pic--fit">
-          <img loading="lazy" decoding="async" src="assets/JBLMakalu.jpg" alt="Paire d'enceintes JBL Summit Makalu.">
+          <img
+            loading="lazy"
+            decoding="async"
+            src="assets/JBLMakalu.jpg"
+            alt="Paire d'enceintes JBL Summit Makalu."
+          />
         </span>
         <div>
           <h3>Mark Levinson &amp; JBL</h3>
-          <p class="sys__note">Mark Levinson, marque emblématique revient avec une nouvelle gamme, les N°519, N°626 et N°636 qui alimenteront les toutes nouvelles JBL Summit Makalu, très attendues par les passionnés.</p>
+          <p class="sys__note">
+            Mark Levinson, marque emblématique revient avec une nouvelle gamme, les N°519, N°626 et
+            N°636 qui alimenteront les toutes nouvelles JBL Summit Makalu, très attendues par les
+            passionnés.
+          </p>
         </div>
       </article>
 
       <article class="sys rv">
-        <a class="sys__pic" href="https://www.raidho.dk/" target="_blank" rel="noopener">
-          <img loading="lazy" decoding="async" src="assets/RAIDHO_X2.8_SPEAKERS.png.jpg" alt="Enceintes Raidho X2.8, vues de face et de trois quarts arrière.">
-          <span class="more">Plus d'infos</span>
-        </a>
+        <span class="sys__pic">
+          <img
+            loading="lazy"
+            decoding="async"
+            src="assets/RAIDHO_X2.8_SPEAKERS.png.jpg"
+            alt="Enceintes Raidho X2.8, vues de face et de trois quarts arrière."
+          />
+        </span>
         <div>
           <h3>Grimm Audio &amp; Raidho</h3>
-          <p class="sys__note">L'ensemble GRIMM AUDIO MU2 et les tout nouveaux blocs mono PA1 feront sublimer les élégantes Raidho X2.8.</p>
+          <p class="sys__note">
+            L'ensemble GRIMM AUDIO MU2 et les tout nouveaux blocs mono PA1 feront sublimer les
+            élégantes Raidho X2.8.
+          </p>
+          <a class="sys__link" href="https://www.raidho.dk/" target="_blank" rel="noopener"
+            >Plus d'infos sur Raidho
+            <svg
+              viewBox="0 0 16 16"
+              aria-hidden="true"
+              focusable="false"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M5.5 10.5 10.5 5.5M6 5.5h4.5V10" /></svg
+          ></a>
         </div>
       </article>
-
     </div>
   </section>
 
@@ -437,90 +1179,192 @@ html{ scroll-behavior: smooth; }
   <section class="part" id="part2">
     <div class="part__head">
       <h2 data-lines>Nos coups de coeur</h2>
-      <p class="rv">Parce que la haute fidélité ne se limite pas aux installations les plus exclusives, nous présenterons également des solutions plus accessibles, faciles à intégrer dans un intérieur contemporain, sans faire de compromis sur les performances.</p>
+      <p class="rv">
+        Parce que la haute fidélité ne se limite pas aux installations les plus exclusives, nous
+        présenterons également des solutions plus accessibles, faciles à intégrer dans un intérieur
+        contemporain, sans faire de compromis sur les performances.
+      </p>
     </div>
 
     <div class="systems">
-
       <article class="sys rv">
         <div class="sys__pics row">
-          <span class="sys__pic sys__pic--fit"><img loading="lazy" decoding="async" src="assets/Arcam_Radia_SA45_5.jpg" alt="Amplificateur-streamer ARCAM Radia SA45."></span>
-          <span class="sys__pic sys__pic--fit"><img loading="lazy" decoding="async" src="assets/PMCProphecy-Group-news.jpg" alt="Gamme PMC Prophecy : colonnes, centrale et compactes en finition bois clair."></span>
+          <span class="sys__pic sys__pic--fit"
+            ><img
+              loading="lazy"
+              decoding="async"
+              src="assets/Arcam_Radia_SA45_5.jpg"
+              alt="Amplificateur-streamer ARCAM Radia SA45."
+          /></span>
+          <span class="sys__pic sys__pic--fit"
+            ><img
+              loading="lazy"
+              decoding="async"
+              src="assets/PMCProphecy-Group-news.jpg"
+              alt="Gamme PMC Prophecy : colonnes, centrale et compactes en finition bois clair."
+          /></span>
         </div>
         <div>
           <h3>Arcam &amp; PMC</h3>
-          <p class="sys__note">Le nouvel amplificateur-streamer ARCAM SA45, équipé de Dirac Live, sera associé aux nouvelles PMC Prophecy 9.</p>
-        </div>
-      </article>
-
-      <article class="sys rv">
-        <a class="sys__pic" href="https://www.kiiaudio.com/" target="_blank" rel="noopener">
-          <img loading="lazy" decoding="async" src="assets/Kii-Seven-0084-erweitert.jpg" alt="Enceinte active Kii Seven blanche sur pied, dans un intérieur.">
-          <span class="more">Plus d'infos</span>
-        </a>
-        <div>
-          <h3>Kii Seven</h3>
-          <p class="sys__note">Les Kii Seven démontreront tout le potentiel des enceintes actives modernes avec la prise en charge de Qobuz Connect, TIDAL Connect, Spotify Connect, AirPlay, Roon Ready et de nombreuses autres solutions de streaming.</p>
+          <p class="sys__note">
+            Le nouvel amplificateur-streamer ARCAM SA45, équipé de Dirac Live, sera associé aux
+            nouvelles PMC Prophecy 9.
+          </p>
         </div>
       </article>
 
       <article class="sys rv">
         <span class="sys__pic">
-          <img loading="lazy" decoding="async" src="assets/NAD_M10v3_Streaming_Amplifier_-_DOUGLAS_HIFI.jpg" alt="Amplificateur de streaming NAD M10 v3.">
+          <img
+            loading="lazy"
+            decoding="async"
+            src="assets/Kii-Seven-0084-erweitert.jpg"
+            alt="Enceinte active Kii Seven blanche sur pied, dans un intérieur."
+          />
+        </span>
+        <div>
+          <h3>Kii Seven</h3>
+          <p class="sys__note">
+            Les Kii Seven démontreront tout le potentiel des enceintes actives modernes avec la
+            prise en charge de Qobuz Connect, TIDAL Connect, Spotify Connect, AirPlay, Roon Ready et
+            de nombreuses autres solutions de streaming.
+          </p>
+          <a class="sys__link" href="https://www.kiiaudio.com/" target="_blank" rel="noopener"
+            >Plus d'infos sur les Kii Seven
+            <svg
+              viewBox="0 0 16 16"
+              aria-hidden="true"
+              focusable="false"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M5.5 10.5 10.5 5.5M6 5.5h4.5V10" /></svg
+          ></a>
+        </div>
+      </article>
+
+      <article class="sys rv">
+        <span class="sys__pic">
+          <img
+            loading="lazy"
+            decoding="async"
+            src="assets/NAD_M10v3_Streaming_Amplifier_-_DOUGLAS_HIFI.jpg"
+            alt="Amplificateur de streaming NAD M10 v3."
+          />
         </span>
         <div>
           <h3>NAD &bull; Scansonic &bull; JL Audio</h3>
-          <p class="sys__note">Un second système équipé de Dirac Live et Dirac Live Bass Control réunira les Scansonic MB1B, deux caissons JL Audio D108 et le tout nouveau NAD M10 v3.</p>
+          <p class="sys__note">
+            Un second système équipé de Dirac Live et Dirac Live Bass Control réunira les Scansonic
+            MB1B, deux caissons JL Audio D108 et le tout nouveau NAD M10 v3.
+          </p>
         </div>
       </article>
 
       <article class="sys rv">
         <span class="sys__pic">
-          <img loading="lazy" decoding="async" src="assets/Lyngdorf_FR2.jpg" alt="Enceinte murale plate Lyngdorf FR-2.">
+          <img
+            loading="lazy"
+            decoding="async"
+            src="assets/Lyngdorf_FR2.jpg"
+            alt="Enceinte murale plate Lyngdorf FR-2."
+          />
         </span>
         <div>
           <h3>Lyngdorf</h3>
           <p class="sys__lead">Deux configurations seront présentées :</p>
           <ul class="spec">
             <li><span class="v">le TDAi-2210 avec les enceintes murales FR-2 ;</span></li>
-            <li><span class="v">le très compact TDAi-1120 associé aux enceintes MH-2 et aux caissons BW-2.</span></li>
+            <li>
+              <span class="v"
+                >le très compact TDAi-1120 associé aux enceintes MH-2 et aux caissons BW-2.</span
+              >
+            </li>
           </ul>
-          <p class="sys__note">Les deux systèmes bénéficieront de la correction acoustique RoomPerfect&trade; de Lyngdorf.</p>
+          <p class="sys__note">
+            Les deux systèmes bénéficieront de la correction acoustique RoomPerfect&trade; de
+            Lyngdorf.
+          </p>
         </div>
       </article>
 
       <article class="sys rv">
         <div class="sys__pics row">
-          <span class="sys__pic"><img loading="lazy" decoding="async" src="assets/Devialet_Phantom_Ultimate_108dB_LP_TREE_4.jpg" alt="Deux Devialet Phantom Ultimate blanches sur pieds."></span>
-          <span class="sys__pic"><img loading="lazy" decoding="async" src="assets/estelon-aura-1-scaled.jpg" alt="Enceintes Estelon Aura dans un intérieur contemporain."></span>
+          <span class="sys__pic"
+            ><img
+              loading="lazy"
+              decoding="async"
+              src="assets/Devialet_Phantom_Ultimate_108dB_LP_TREE_4.jpg"
+              alt="Deux Devialet Phantom Ultimate blanches sur pieds."
+          /></span>
+          <span class="sys__pic"
+            ><img
+              loading="lazy"
+              decoding="async"
+              src="assets/estelon-aura-1-scaled.jpg"
+              alt="Enceintes Estelon Aura dans un intérieur contemporain."
+          /></span>
         </div>
         <div>
           <h3>Devialet/Estelon</h3>
-          <p class="sys__note">Vous pourrez écouter les Phantom 98/108 dB Ultimate, ainsi que les amplificateurs Devialet Astra associés aux enceintes Estelon Aura.</p>
+          <p class="sys__note">
+            Vous pourrez écouter les Phantom 98/108 dB Ultimate, ainsi que les amplificateurs
+            Devialet Astra associés aux enceintes Estelon Aura.
+          </p>
         </div>
       </article>
 
       <article class="sys rv">
-        <a class="sys__pic sys__pic--fit" href="https://www.raidho.dk/products/x1-6" target="_blank" rel="noopener">
-          <img loading="lazy" decoding="async" src="assets/Cyrus80AMPRightCorner-Dynamic.jpg" alt="Amplificateur-streamer Cyrus 80, vue d'angle.">
-          <span class="more">Plus d'infos</span>
-        </a>
+        <span class="sys__pic sys__pic--fit">
+          <img
+            loading="lazy"
+            decoding="async"
+            src="assets/Cyrus80AMPRightCorner-Dynamic.jpg"
+            alt="Amplificateur-streamer Cyrus 80, vue d'angle."
+          />
+        </span>
         <div>
           <h3>Cyrus &amp; Raidho</h3>
-          <p class="sys__note">Le nouvel ampli-streamer Cyrus 80 alimentera les incroyables enceintes compactes Raidho X1.6 Référence.</p>
+          <p class="sys__note">
+            Le nouvel ampli-streamer Cyrus 80 alimentera les incroyables enceintes compactes Raidho
+            X1.6 Référence.
+          </p>
+          <a
+            class="sys__link"
+            href="https://www.raidho.dk/products/x1-6"
+            target="_blank"
+            rel="noopener"
+            >Plus d'infos sur les Raidho X1.6
+            <svg
+              viewBox="0 0 16 16"
+              aria-hidden="true"
+              focusable="false"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M5.5 10.5 10.5 5.5M6 5.5h4.5V10" /></svg
+          ></a>
         </div>
       </article>
 
       <article class="sys rv">
         <span class="sys__pic sys__pic--none">
-          <b>QUAD 99<br>Eversolo T8<br>PMC Prodigy 5</b>
+          <b>QUAD 99<br />Eversolo T8<br />PMC Prodigy 5</b>
         </span>
         <div>
           <h3>QUAD &bull; Eversolo &bull; PMC</h3>
-          <p class="sys__note">L'amplificateur QUAD 99, associé au streamer-transport Eversolo T8, sera présenté avec les colonnes PMC Prodigy 5.</p>
+          <p class="sys__note">
+            L'amplificateur QUAD 99, associé au streamer-transport Eversolo T8, sera présenté avec
+            les colonnes PMC Prodigy 5.
+          </p>
         </div>
       </article>
-
     </div>
   </section>
 
@@ -528,12 +1372,18 @@ html{ scroll-behavior: smooth; }
   <section class="part" id="part3">
     <div class="part__head">
       <h2 data-lines>Une démonstration Home Cinema inédite</h2>
-      <p class="rv">Nous proposerons également une expérience Home Cinema originale autour du nouveau processeur Trinnov Audio Altitude CI.</p>
+      <p class="rv">
+        Nous proposerons également une expérience Home Cinema originale autour du nouveau processeur
+        Trinnov Audio Altitude CI.
+      </p>
     </div>
 
     <div class="cine rv">
       <div>
-        <p>Dans sa configuration de base, il dispose de 8 canaux et peut évoluer, par simple mise à jour logicielle, jusqu'à 32 canaux.</p>
+        <p>
+          Dans sa configuration de base, il dispose de 8 canaux et peut évoluer, par simple mise à
+          jour logicielle, jusqu'à 32 canaux.
+        </p>
         <div class="cine__scale">
           <b>8</b>
           <i aria-hidden="true">&rarr;</i>
@@ -542,160 +1392,201 @@ html{ scroll-behavior: smooth; }
         </div>
       </div>
       <div class="cine__pic">
-        <img loading="lazy" decoding="async" src="assets/c_alti16--ampli16_rac-1.png" alt="Processeur Trinnov Altitude CI et son amplificateur, empilés en rack.">
+        <img
+          loading="lazy"
+          decoding="async"
+          src="assets/c_alti16--ampli16_rac-1.png"
+          alt="Processeur Trinnov Altitude CI et son amplificateur, empilés en rack."
+        />
       </div>
     </div>
 
-    <p class="cine__intro rv">Au cours d'une même démonstration, vous suivrez l'évolution d'un seul système à travers plusieurs configurations :</p>
+    <p class="cine__intro rv">
+      Au cours d'une même démonstration, vous suivrez l'évolution d'un seul système à travers
+      plusieurs configurations :
+    </p>
 
     <ol class="configs configs--cine">
-      <li class="rv"><h4>stéréo ;</h4></li>
-      <li class="rv"><h4>stéréo avec caissons de graves ;</h4></li>
-      <li class="rv"><h4>Home Cinema 5.2 ;</h4></li>
+      <li class="rv"><h4>Stéréo</h4></li>
+      <li class="rv"><h4>Stéréo avec caissons de graves</h4></li>
+      <li class="rv"><h4>Home Cinema 5.2</h4></li>
       <li class="rv"><h4>Dolby Atmos 5.4.4.</h4></li>
     </ol>
 
-    <p class="cine__outro rv">Une démonstration immersive qui permettra de comprendre concrètement l'apport de chaque configuration et des technologies de traitement acoustique utilisées.</p>
+    <p class="cine__outro rv">
+      Une démonstration immersive qui permettra de comprendre concrètement l'apport de chaque
+      configuration et des technologies de traitement acoustique utilisées.
+    </p>
   </section>
 
   <!-- ═══ CLÔTURE ═════════════════════════════════════════ -->
   <section class="close">
-    <p class="rv">Les 24 &amp; 25 octobre 2026, venez partager avec nous votre passion pour la musique, le cinéma et les plus belles technologies audio et vidéo.</p>
-    <p class="close__sub rv">Nous serons heureux de vous accueillir au Novotel Luxembourg Kirchberg pour cette nouvelle édition de notre Salon Hi-Fi &amp; Home Cinema.</p>
+    <p class="rv">
+      Les 24 &amp; 25 octobre 2026, venez partager avec nous votre passion pour la musique, le
+      cinéma et les plus belles technologies audio et vidéo.
+    </p>
+    <p class="close__sub rv">
+      Nous serons heureux de vous accueillir au Novotel Luxembourg Kirchberg pour cette nouvelle
+      édition de notre Salon Hi-Fi &amp; Home Cinema.
+    </p>
     <p class="label label--o close__soon rv">more to come &ndash; à suivre !</p>
-    <a class="back rv" href="https://audiophile.lu/"><span aria-hidden="true">&larr;</span> Retour</a>
+    <a class="back rv" href="https://audiophile.lu/"
+      ><span aria-hidden="true">&larr;</span> Retour</a
+    >
   </section>
-
 </div>
 
 <script>
-(function () {
-  var root = document.getElementById('salon26');
-  if (!root) return;
+  ;(function () {
+    var root = document.getElementById('salon26')
+    if (!root) return
 
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var heads  = [].slice.call(root.querySelectorAll('[data-lines]'));
-  var items  = [].slice.call(root.querySelectorAll('.rv'));
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    var heads = [].slice.call(root.querySelectorAll('[data-lines]'))
+    var items = [].slice.call(root.querySelectorAll('.rv'))
 
-  function show(el) { el.classList.add('is-in'); }
+    function show(el) {
+      el.classList.add('is-in')
+    }
 
-  if (reduce || !('IntersectionObserver' in window)) {
-    heads.concat(items).forEach(show);
-    return;
-  }
+    if (reduce || !('IntersectionObserver' in window)) {
+      heads.concat(items).forEach(show)
+      return
+    }
 
-  /* ---- split a heading into its rendered lines, each behind its own mask --
+    /* ---- split a heading into its rendered lines, each behind its own mask --
      Words are measured first, grouped by vertical offset, then rebuilt as one
      masked line per row so the reveal follows the real line breaks.          */
-  function split(el) {
-    var text = el.getAttribute('data-text');
-    if (text === null) {
-      text = el.textContent.replace(/\s+/g, ' ').trim();
-      el.setAttribute('data-text', text);
-    }
-
-    var words = text.split(' ');
-    el.textContent = '';
-    words.forEach(function (w, i) {
-      var span = document.createElement('span');
-      span.textContent = w;
-      el.appendChild(span);
-      if (i < words.length - 1) el.appendChild(document.createTextNode(' '));
-    });
-
-    var lines = [], top = null, line = null;
-    [].slice.call(el.children).forEach(function (span) {
-      var y = Math.round(span.offsetTop);
-      if (top === null || Math.abs(y - top) > 2) { line = []; lines.push(line); top = y; }
-      line.push(span.textContent);
-    });
-
-    el.textContent = '';
-    lines.forEach(function (parts, i) {
-      var mask  = document.createElement('span');
-      var inner = document.createElement('span');
-      mask.className = 'ln';
-      /* trailing space keeps copy/paste and screen readers from running
-         two lines together; it collapses at the end of a block line */
-      inner.textContent = parts.join(' ') + (i < lines.length - 1 ? ' ' : '');
-      inner.style.transitionDelay = (i * 110) + 'ms';
-      mask.appendChild(inner);
-      el.appendChild(mask);
-    });
-  }
-
-  function build() {
-    heads.forEach(function (el) {
-      var wasIn = el.classList.contains('is-in');
-      el.classList.remove('is-in');
-      split(el);
-      if (wasIn) {
-        /* already seen: restore instantly, don't replay the reveal */
-        [].slice.call(el.querySelectorAll('.ln > span')).forEach(function (n) {
-          n.style.transition = 'none';
-          n.style.transitionDelay = '0ms';
-        });
-        el.classList.add('is-in');
-        el.offsetHeight;
-        [].slice.call(el.querySelectorAll('.ln > span')).forEach(function (n) {
-          n.style.transition = '';
-        });
+    function split(el) {
+      var text = el.getAttribute('data-text')
+      if (text === null) {
+        text = el.textContent.replace(/\s+/g, ' ').trim()
+        el.setAttribute('data-text', text)
       }
-    });
-  }
 
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (!e.isIntersecting) return;
-      show(e.target);
-      io.unobserve(e.target);
-    });
-  }, { rootMargin: '0px 0px -40px 0px', threshold: 0.05 });
+      var words = text.split(' ')
+      el.textContent = ''
+      words.forEach(function (w, i) {
+        var span = document.createElement('span')
+        span.textContent = w
+        el.appendChild(span)
+        if (i < words.length - 1) el.appendChild(document.createTextNode(' '))
+      })
 
-  /* Safety net: anything sitting inside that bottom margin when the page can
-     scroll no further would otherwise never intersect. Sweep it in by hand. */
-  var pending = [];
-  function sweep() {
-    var vh = window.innerHeight;
-    var atEnd = (vh + window.pageYOffset) >= (document.documentElement.scrollHeight - 4);
-    pending = pending.filter(function (el) {
-      if (el.classList.contains('is-in')) return false;
-      var r = el.getBoundingClientRect();
-      if (atEnd || (r.top < vh && r.bottom > 0)) { show(el); io.unobserve(el); return false; }
-      return true;
-    });
-    if (!pending.length) {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
+      var lines = [],
+        top = null,
+        line = null
+      ;[].slice.call(el.children).forEach(function (span) {
+        var y = Math.round(span.offsetTop)
+        if (top === null || Math.abs(y - top) > 2) {
+          line = []
+          lines.push(line)
+          top = y
+        }
+        line.push(span.textContent)
+      })
+
+      el.textContent = ''
+      lines.forEach(function (parts, i) {
+        var mask = document.createElement('span')
+        var inner = document.createElement('span')
+        mask.className = 'ln'
+        /* trailing space keeps copy/paste and screen readers from running
+         two lines together; it collapses at the end of a block line */
+        inner.textContent = parts.join(' ') + (i < lines.length - 1 ? ' ' : '')
+        inner.style.transitionDelay = i * 110 + 'ms'
+        mask.appendChild(inner)
+        el.appendChild(mask)
+      })
     }
-  }
-  var ticking = false;
-  function onScroll() {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(function () { ticking = false; sweep(); });
-  }
 
-  function start() {
-    build();
-    pending = heads.concat(items);
-    pending.forEach(function (el) { io.observe(el); });
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-    sweep();
-  }
+    function build() {
+      heads.forEach(function (el) {
+        var wasIn = el.classList.contains('is-in')
+        el.classList.remove('is-in')
+        split(el)
+        if (wasIn) {
+          /* already seen: restore instantly, don't replay the reveal */
+          ;[].slice.call(el.querySelectorAll('.ln > span')).forEach(function (n) {
+            n.style.transition = 'none'
+            n.style.transitionDelay = '0ms'
+          })
+          el.classList.add('is-in')
+          el.offsetHeight
+          ;[].slice.call(el.querySelectorAll('.ln > span')).forEach(function (n) {
+            n.style.transition = ''
+          })
+        }
+      })
+    }
 
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(start);
-    setTimeout(function () { if (!heads.length || heads[0].querySelector('.ln')) return; start(); }, 1200);
-  } else {
-    start();
-  }
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return
+          show(e.target)
+          io.unobserve(e.target)
+        })
+      },
+      { rootMargin: '0px 0px -40px 0px', threshold: 0.05 },
+    )
 
-  var t;
-  window.addEventListener('resize', function () {
-    clearTimeout(t);
-    t = setTimeout(build, 180);
-  });
-})();
+    /* Safety net: anything sitting inside that bottom margin when the page can
+     scroll no further would otherwise never intersect. Sweep it in by hand. */
+    var pending = []
+    function sweep() {
+      var vh = window.innerHeight
+      var atEnd = vh + window.pageYOffset >= document.documentElement.scrollHeight - 4
+      pending = pending.filter(function (el) {
+        if (el.classList.contains('is-in')) return false
+        var r = el.getBoundingClientRect()
+        if (atEnd || (r.top < vh && r.bottom > 0)) {
+          show(el)
+          io.unobserve(el)
+          return false
+        }
+        return true
+      })
+      if (!pending.length) {
+        window.removeEventListener('scroll', onScroll)
+        window.removeEventListener('resize', onScroll)
+      }
+    }
+    var ticking = false
+    function onScroll() {
+      if (ticking) return
+      ticking = true
+      requestAnimationFrame(function () {
+        ticking = false
+        sweep()
+      })
+    }
+
+    function start() {
+      build()
+      pending = heads.concat(items)
+      pending.forEach(function (el) {
+        io.observe(el)
+      })
+      window.addEventListener('scroll', onScroll, { passive: true })
+      window.addEventListener('resize', onScroll)
+      sweep()
+    }
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(start)
+      setTimeout(function () {
+        if (!heads.length || heads[0].querySelector('.ln')) return
+        start()
+      }, 1200)
+    } else {
+      start()
+    }
+
+    var t
+    window.addEventListener('resize', function () {
+      clearTimeout(t)
+      t = setTimeout(build, 180)
+    })
+  })()
 </script>
