@@ -1,0 +1,701 @@
+<meta charset="utf-8">
+<!-- If this markup is pasted into a page whose theme already emits charset /
+     viewport (WordPress does), these two <meta> lines can be dropped. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Salon Hi-Fi &amp; Home Cinema 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+
+<style>
+/* ==========================================================
+   Salon Hi-Fi & Home Cinema — 24 & 25 octobre 2026
+   Scoped to #salon26: drops into the existing page without
+   touching header / footer styles.
+   ========================================================== */
+
+#salon26{
+  --orange:      #F09818;   /* taken from the show poster */
+  --orange-text: #B0700A;   /* same hue, legible at small sizes on white */
+  --ink:         #252531;   /* site heading colour */
+  --body:        #3B3D42;   /* site body colour */
+  --grey:        #7C8088;
+  --rule:        #E2E2E4;
+  --wash:        #F6F6F7;
+
+  --col: 1140px;
+  --gap: clamp(20px, 4vw, 40px);
+
+  max-width: var(--col);
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 24px);
+  font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--body);
+  background: #fff;
+}
+#salon26 *, #salon26 *::before, #salon26 *::after{ box-sizing: border-box; }
+
+/* Smooth in-page jumps from the contents list. If the theme's header is ever
+   made sticky, set --anchor-offset to its height so headings clear it. */
+html{ scroll-behavior: smooth; }
+#salon26 section[id]{ scroll-margin-top: var(--anchor-offset, 28px); }
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior: auto; } }
+#salon26 img{ display: block; max-width: 100%; }
+#salon26 figure{ margin: 0; }
+#salon26 a{ color: inherit; }
+#salon26 :focus-visible{ outline: 2px solid var(--orange); outline-offset: 2px; }
+
+#salon26 h1, #salon26 h2, #salon26 h3, #salon26 h4{
+  color: var(--ink); margin: 0; font-weight: 500; line-height: 1.22;
+}
+#salon26 p{ margin: 0 0 1em; }
+#salon26 p:last-child{ margin-bottom: 0; }
+
+/* small uppercase label, used for every eyebrow on the page */
+#salon26 .label{
+  font-size: 12px; font-weight: 500; line-height: 1.4;
+  letter-spacing: .13em; text-transform: uppercase;
+  color: var(--grey); margin: 0;
+}
+#salon26 .label--o{ color: var(--orange-text); }
+
+/* ---------- motion ----------
+   Headings reveal line by line from behind a mask; everything else rises and
+   fades as it enters the viewport. Both initial states live inside
+   @media (scripting: enabled) so the page is fully visible without JS. */
+@media (scripting: enabled){
+  #salon26 .ln{ display: block; overflow: hidden; margin-bottom: -.16em; padding-bottom: .16em; }
+  #salon26 .ln > span{
+    display: block; transform: translateY(115%);
+    transition: transform .9s cubic-bezier(.16, 1, .3, 1);
+  }
+  #salon26 .is-in .ln > span{ transform: none; }
+
+  #salon26 .rv{
+    opacity: 0; transform: translateY(24px);
+    transition: opacity .8s cubic-bezier(.16, 1, .3, 1), transform .8s cubic-bezier(.16, 1, .3, 1);
+  }
+  #salon26 .rv.is-in{ opacity: 1; transform: none; }
+
+  /* a short stagger across each grid row */
+  #salon26 .systems > .rv:nth-child(3n+2){ transition-delay: .09s; }
+  #salon26 .systems > .rv:nth-child(3n+3){ transition-delay: .18s; }
+  #salon26 .configs--cine > .rv:nth-child(2){ transition-delay: .07s; }
+  #salon26 .configs--cine > .rv:nth-child(3){ transition-delay: .14s; }
+  #salon26 .configs--cine > .rv:nth-child(4){ transition-delay: .21s; }
+}
+@media (prefers-reduced-motion: reduce){
+  #salon26 .ln > span, #salon26 .rv{
+    transition: none !important; transform: none !important; opacity: 1 !important;
+  }
+}
+
+/* ---------- 1. title block ---------- */
+#salon26 .head{
+  display: grid; gap: var(--gap); grid-template-columns: minmax(0, 1fr);
+  padding: clamp(28px, 5vw, 52px) 0 clamp(30px, 5vw, 50px);
+  border-bottom: 1px solid var(--rule);
+}
+@media (min-width: 880px){
+  #salon26 .head{ grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); align-items: center; }
+}
+#salon26 .head h1{
+  font-size: clamp(1.9rem, 4.4vw, 3rem); font-weight: 700; letter-spacing: -.015em;
+  margin: 14px 0 0;
+}
+#salon26 .head__when{
+  margin: 22px 0 0; padding: 16px 0 0; border-top: 3px solid var(--orange);
+  display: grid; gap: 2px;
+}
+#salon26 .head__when b{
+  font-size: clamp(1.15rem, 2.4vw, 1.5rem); font-weight: 500; color: var(--ink); line-height: 1.3;
+}
+#salon26 .head__when span{ color: var(--grey); }
+#salon26 .head__poster{ background: var(--wash); }
+#salon26 .head__poster img{ width: 100%; }
+
+/* ---------- 2. intro + practical info ---------- */
+#salon26 .intro{
+  display: grid; gap: var(--gap); grid-template-columns: minmax(0, 1fr);
+  padding: clamp(30px, 5vw, 52px) 0;
+  border-bottom: 1px solid var(--rule);
+}
+@media (min-width: 880px){
+  #salon26 .intro{ grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); }
+}
+#salon26 .intro__lead{
+  font-size: clamp(1.05rem, 2vw, 1.25rem); line-height: 1.55; color: var(--ink); font-weight: 400;
+}
+#salon26 .intro__body{ max-width: 62ch; }
+
+#salon26 .infos{ background: var(--wash); padding: clamp(20px, 3vw, 28px); align-self: start; }
+#salon26 .infos__intro{ margin: 12px 0 0; font-size: .94rem; color: var(--grey); }
+#salon26 .infos address{ font-style: normal; margin: 14px 0 0; color: var(--ink); line-height: 1.6; }
+#salon26 .infos__qr{ display: flex; gap: 18px; align-items: center; margin-top: 20px; flex-wrap: wrap; }
+#salon26 .infos__qr img{ width: 104px; height: 104px; background: #fff; }
+
+#salon26 .lnk{
+  display: inline-block; color: var(--ink); text-decoration: none;
+  border-bottom: 2px solid var(--orange); padding-bottom: 2px;
+  font-weight: 500; transition: color .18s ease;
+}
+#salon26 .lnk:hover{ color: var(--orange-text); }
+
+/* table of contents — plain list, no chrome */
+#salon26 .toc{ margin: clamp(26px, 4vw, 40px) 0 0; padding: 0; list-style: none; display: grid; gap: 2px; }
+#salon26 .toc li{ border-top: 1px solid var(--rule); }
+#salon26 .toc li:last-child{ border-bottom: 1px solid var(--rule); }
+#salon26 .toc a{
+  display: flex; align-items: center; justify-content: space-between; gap: 18px;
+  padding: 11px 0;
+  text-decoration: none; color: var(--ink); transition: color .18s ease;
+}
+#salon26 .toc a:hover{ color: var(--orange-text); }
+#salon26 .toc svg{
+  width: 16px; height: 16px; flex: none; color: var(--grey);
+  transition: color .18s ease, transform .18s ease;
+}
+#salon26 .toc a:hover svg,
+#salon26 .toc a:focus-visible svg{ color: var(--orange); transform: translateX(3px); }
+@media (prefers-reduced-motion: reduce){
+  #salon26 .toc svg{ transition: color .18s ease; }
+  #salon26 .toc a:hover svg{ transform: none; }
+}
+
+/* ---------- sections ---------- */
+#salon26 .part{ padding: clamp(40px, 6vw, 72px) 0; border-bottom: 1px solid var(--rule); }
+#salon26 .part__head{ max-width: 68ch; margin-bottom: clamp(28px, 4vw, 44px); }
+#salon26 .part__head h2{
+  font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 700; letter-spacing: -.01em; margin: 10px 0 0;
+}
+#salon26 .part__head p{ margin-top: 14px; }
+
+/* ---------- B&W feature ---------- */
+#salon26 .feature{ display: grid; gap: var(--gap); grid-template-columns: minmax(0, 1fr); margin-bottom: clamp(36px, 5vw, 60px); }
+@media (min-width: 900px){
+  #salon26 .feature{ grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+}
+#salon26 .feature__pics{ display: grid; gap: 10px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+#salon26 .feature__pics a, #salon26 .feature__pics span{ display: block; background: var(--wash); overflow: hidden; }
+#salon26 .feature__pics .big{ grid-column: 1 / -1; }
+#salon26 .feature__pics img{ width: 100%; aspect-ratio: 1; object-fit: cover; transition: opacity .25s ease; }
+#salon26 .feature__pics .big img{ aspect-ratio: 16 / 10; }
+#salon26 .feature__pics a:hover img{ opacity: .86; }
+#salon26 .feature__badge{
+  display: inline-block; margin: 0 0 12px;
+  background: var(--orange); color: #fff; padding: 5px 9px;
+}
+#salon26 .feature h3{ font-size: clamp(1.3rem, 2.6vw, 1.75rem); font-weight: 700; margin: 0 0 14px; }
+
+#salon26 .configs{ list-style: none; margin: 24px 0 0; padding: 0; }
+#salon26 .configs > li{ border-top: 1px solid var(--rule); padding: 18px 0; }
+#salon26 .configs > li:last-child{ border-bottom: 1px solid var(--rule); }
+#salon26 .configs h4{ font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
+#salon26 .configs--cine{ margin-top: 18px; max-width: 60ch; }
+#salon26 .configs--cine > li{ padding: 13px 0; }
+#salon26 .configs--cine h4{ font-weight: 500; margin-bottom: 0; }
+#salon26 .configs p{ font-size: .95rem; color: var(--grey); margin: 10px 0 0; }
+
+/* ---------- spec list ---------- */
+#salon26 .spec{ list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; }
+#salon26 .spec li{ display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 12px; align-items: baseline; }
+#salon26 .spec .k{
+  font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--grey); line-height: 1.9;
+}
+#salon26 .spec .v{ font-size: .95rem; line-height: 1.5; color: var(--ink); }
+#salon26 .spec li:not(:has(.k)){ grid-template-columns: minmax(0, 1fr); padding-left: 14px; position: relative; }
+#salon26 .spec li:not(:has(.k))::before{
+  content: "—"; position: absolute; left: 0; top: 0; color: var(--grey); font-size: .9rem;
+}
+#salon26 .sys__lead{ margin: 0 0 10px; font-size: .95rem; color: var(--ink); }
+@media (max-width: 520px){
+  #salon26 .spec li{ grid-template-columns: 1fr; gap: 0; }
+  #salon26 .spec .k{ line-height: 1.6; }
+}
+
+#salon26 .systems__hint{ margin: 0 0 18px; color: var(--grey); }
+
+/* ---------- system grid ---------- */
+#salon26 .systems{ display: grid; gap: clamp(30px, 4vw, 46px) var(--gap); grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 620px){ #salon26 .systems{ grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1000px){ #salon26 .systems{ grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+#salon26 .sys{ display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); align-content: start; }
+#salon26 .sys__pic{
+  display: block; background: var(--wash); overflow: hidden; position: relative;
+  aspect-ratio: 4 / 3; text-decoration: none;
+}
+#salon26 .sys__pic img{ width: 100%; height: 100%; object-fit: cover; transition: opacity .25s ease; }
+/* studio shots on a white ground: shown whole, on white, so nothing boxes them in */
+#salon26 .sys__pic--fit{ background: #fff; border: 1px solid var(--rule); }
+#salon26 .sys__pic--fit img{ object-fit: contain; padding: 5%; }
+
+/* A system shown through two or three photographs. The block keeps the same
+   4:3 footprint as a single photo so every caption in the row starts level. */
+#salon26 .sys__pics{ display: grid; gap: 8px; aspect-ratio: 4 / 3; }
+#salon26 .sys__pics.row{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+#salon26 .sys__pics--stack{ grid-template-rows: 1.45fr 1fr; }
+#salon26 .sys__pics--stack .row{ display: grid; gap: 8px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+#salon26 .sys__pics .sys__pic{ aspect-ratio: auto; height: 100%; }
+#salon26 a.sys__pic:hover img{ opacity: .86; }
+#salon26 .sys__pic .more{
+  position: absolute; left: 0; bottom: 0;
+  background: var(--orange); color: #fff;
+  font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
+  padding: 5px 9px; opacity: 0; transition: opacity .25s ease;
+}
+#salon26 a.sys__pic:hover .more, #salon26 a.sys__pic:focus-visible .more{ opacity: 1; }
+#salon26 .sys__pic--none{
+  display: grid; place-content: center; text-align: center; gap: 8px; padding: 24px;
+  border: 1px solid var(--rule); background: #fff;
+}
+#salon26 .sys__pic--none b{ color: var(--ink); font-size: 1.1rem; font-weight: 500; line-height: 1.35; }
+#salon26 .sys h3{ font-size: 1.15rem; font-weight: 700; margin: 6px 0 12px; }
+#salon26 .sys__note{ margin: 12px 0 0; font-size: .92rem; color: var(--grey); }
+
+/* ---------- home cinema ---------- */
+#salon26 .cine{ display: grid; gap: var(--gap); grid-template-columns: minmax(0, 1fr); align-items: start; }
+@media (min-width: 820px){ #salon26 .cine{ grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+#salon26 .cine__pic{ background: var(--wash); display: grid; place-items: center; padding: 6%; }
+#salon26 .cine__pic img{ width: 100%; }
+#salon26 .cine__scale{
+  margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--rule);
+  display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+}
+#salon26 .cine__scale b{ font-size: 2rem; font-weight: 300; color: var(--ink); line-height: 1; }
+#salon26 .cine__scale i{ font-style: normal; color: var(--orange); font-size: 1.2rem; }
+#salon26 .cine__scale span{ font-size: .92rem; color: var(--grey); max-width: 28ch; }
+#salon26 .cine__intro{ margin: clamp(30px, 4vw, 46px) 0 0; max-width: 62ch; }
+#salon26 .cine__outro{ margin: clamp(22px, 3vw, 32px) 0 0; max-width: 62ch; color: var(--grey); }
+
+/* ---------- closing ---------- */
+#salon26 .close{ padding: clamp(36px, 5vw, 60px) 0 clamp(28px, 4vw, 44px); }
+#salon26 .close p{
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem); line-height: 1.5; color: var(--ink);
+  max-width: 46ch; margin-bottom: 18px;
+}
+#salon26 .close__sub{ font-size: 1rem !important; color: var(--grey); max-width: 52ch; }
+#salon26 .close__soon{ margin-top: 26px; }
+#salon26 .back{
+  display: inline-block; margin-top: 26px; font-size: 12px; font-weight: 500;
+  letter-spacing: .13em; text-transform: uppercase; color: var(--grey);
+  text-decoration: none; transition: color .18s ease;
+}
+#salon26 .back:hover{ color: var(--orange-text); }
+</style>
+
+<div id="salon26">
+
+  <!-- ═══ TITRE ═══════════════════════════════════════════ -->
+  <header class="head">
+    <div>
+      <p class="label label--o rv">Save the date &mdash; l'Audiophile</p>
+      <h1 data-lines>Salon Hi-Fi &amp; Home Cinema</h1>
+      <div class="head__when rv">
+        <b>Les 24 &amp; 25 octobre 2026</b>
+        <span>Novotel Luxembourg Kirchberg</span>
+      </div>
+    </div>
+    <div class="head__poster rv">
+      <img src="https://audiophile.lu/wp-content/uploads/2026/06/landscape-2048x1073.png" alt="Affiche du Salon Hi-Fi &amp; Home Cinema de l'Audiophile, 24 et 25 octobre 2026 au Novotel Luxembourg-Kirchberg." fetchpriority="high">
+    </div>
+  </header>
+
+  <!-- ═══ INTRO + INFOS PRATIQUES ═════════════════════════ -->
+  <section class="intro">
+    <div class="intro__body">
+      <p class="intro__lead rv">Les 24 &amp; 25 octobre 2026, l'Audiophile transforme le Novotel Luxembourg Kirchberg en un véritable temple du Son &amp; de l'Image.</p>
+      <p class="rv">À l'occasion de cette nouvelle édition de notre Salon Hi-Fi &amp; Home Cinema, nous vous invitons à vivre deux journées entièrement consacrées aux plus belles réalisations audiophiles et Home Cinema.</p>
+      <p class="rv">Vous pourrez découvrir, comparer et écouter des systèmes soigneusement sélectionnés et optimisés par notre équipe, dans des conditions de démonstration exceptionelles.</p>
+
+      <ul class="toc rv">
+        <li><a href="#part1"><span>Les grandes premières et les systèmes de référence</span><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h11M9.5 3.5 14 8l-4.5 4.5"/></svg></a></li>
+        <li><a href="#part2"><span>Nos coups de coeur</span><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h11M9.5 3.5 14 8l-4.5 4.5"/></svg></a></li>
+        <li><a href="#part3"><span>Une démonstration Home Cinema inédite</span><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h11M9.5 3.5 14 8l-4.5 4.5"/></svg></a></li>
+      </ul>
+    </div>
+
+    <aside class="infos rv">
+      <p class="label">Parkings &ndash; Adresse</p>
+      <p class="infos__intro">Toutes les Infos ci-dessous dans le QR Code et/ou le lien.</p>
+      <address>6 rue Fort Niedergrünewald, Quartier Européen Nord, Plateau de Kirchberg, L-2226 LUXEMBOURG, Luxembourg</address>
+      <div class="infos__qr">
+        <img loading="lazy" decoding="async" src="https://audiophile.lu/wp-content/uploads/2026/07/qrcode_all.accor_.com_-400x400.png" alt="QR code vers la page d'accès et de stationnement du Novotel Luxembourg Kirchberg.">
+        <a class="lnk" href="https://all.accor.com/hotel/1930/index.en.shtml?utm_campaign=seo+maps&amp;utm_medium=seo+maps&amp;utm_source=google+Maps#section-location" target="_blank" rel="noopener">Parkings &ndash; Adresse</a>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ═══ 1) ═════════════════════════════════════════════ -->
+  <section class="part" id="part1">
+    <div class="part__head">
+      <h2 data-lines>Les grandes premières et les systèmes de référence</h2>
+    </div>
+
+    <!-- Bowers & Wilkins 800 D5 -->
+    <div class="feature rv">
+      <div class="feature__pics">
+        <a class="big" href="https://www.bowerswilkins.com/en/category/loudspeakers/800-series-diamond-d5/" target="_blank" rel="noopener">
+          <img loading="lazy" decoding="async" src="assets/B%26W%20-%20801%20D5%20Dark%20Walnut%20-%20%20Lifestyle%201%20-%201x1.jpg" alt="Paire de Bowers &amp; Wilkins 801 D5 en noyer foncé installée dans un salon.">
+        </a>
+        <span><img loading="lazy" decoding="async" src="assets/B%26W%20-%20801%20D5%20Stealth%20Black%20-%20%20Lifestyle%205%20-%204x5.jpg" alt="Bowers &amp; Wilkins 801 D5 en finition Stealth Black, vue rapprochée."></span>
+        <span><img loading="lazy" decoding="async" src="assets/B%26W%20-%20801%20D5%20Dark%20Walnut%20-%20%20Lifestyle%203%20-%201x1.jpg" alt="Détail du médium et de la tête de la 801 D5 en noyer foncé."></span>
+      </div>
+
+      <div>
+        <p class="label feature__badge">Nouveauté!</p>
+        <h3>Bowers &amp; Wilkins Série 800 D5</h3>
+        <p>La toute nouvelle génération Bowers &amp; Wilkins Série 800 D5 sera présentée pour la première fois.</p>
+
+        <ol class="configs">
+          <li>
+            <h4>801 D5</h4>
+            <p>Les 801 D5 seront associées au LINN Klimax DSM/3 Organik et aux blocs mono LINN Klimax Solo 500, un ensemble conçu pour révéler tout le potentiel de ces nouveaux haut-parleurs de référence.</p>
+          </li>
+          <li>
+            <h4>803 D5</h4>
+            <p>Les 803 D5 seront mises en œuvre avec l'ensemble Marantz MODEL 10, LINK 10 et SACD 10, reconnu pour sa musicalité, son raffinement et sa puissance.</p>
+          </li>
+          <li>
+            <h4>805 D5</h4>
+            <p>Les 805 D5 évolueront dans une configuration intégrant Dirac Live Bass Control, avec les électroniques NAD M66 et NAD M23 v2, accompagnées de quatre caissons Bowers &amp; Wilkins DB2D, afin d'illustrer les performances des technologies modernes de correction acoustique.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <p class="label systems__hint rv">Click on the images for more infos &ndash; Cliquez sur les images pour plus d'infos</p>
+
+    <div class="systems">
+
+      <article class="sys rv">
+        <a class="sys__pic" href="https://www.raidho.dk/products/raidho-td3-10" target="_blank" rel="noopener">
+          <img loading="lazy" decoding="async" src="assets/RaidhoTD3.10.jpg" alt="Enceintes colonne Raidho TD3.10.">
+          <span class="more">Plus d'infos</span>
+        </a>
+        <div>
+          <h3>Raidho TD3.10</h3>
+          <p class="sys__note">Les nouvelles Raidho TD3.10 seront associées aux blocs mono Audio Analogue Absolute Mono 500 et à un ensemble MSB assurant le streaming et la conversion numérique-analogique.</p>
+        </div>
+      </article>
+
+      <article class="sys rv">
+        <div class="sys__pics sys__pics--stack">
+          <a class="sys__pic" href="https://wadax.eu/" target="_blank" rel="noopener">
+            <img loading="lazy" decoding="async" src="assets/WADAXstudio_collection1-1.jpg" alt="WADAX Studio Player, Studio PSU et Studio Clock empilés.">
+            <span class="more">Plus d'infos</span>
+          </a>
+          <div class="row">
+            <span class="sys__pic"><img loading="lazy" decoding="async" src="assets/Dan_DAgostino_Master_Audio_Systems_Progression_Neo_Series_review_matej_isak_mono_and_stereo_2026_high_end_audiophile_luxury_audio_music_4.jpg" alt="Amplificateur de puissance Dan D'Agostino Progression NEO."></span>
+            <span class="sys__pic"><img loading="lazy" decoding="async" src="assets/Estelon%20Forza%20Ultra%20Petra%20Gold.jpg" alt="Paire d'enceintes Estelon Forza Ultra en finition Petra Gold."></span>
+          </div>
+        </div>
+        <div>
+          <h3>Wadax &bull; Dan D'Agostino &bull; Estelon</h3>
+          <p class="sys__note">Les WADAX Studio Player, Studio PSU et Studio Clock seront combinés au nouvel amplificateur de puissance Dan D'Agostino Progression NEO, afin de mettre en valeur des enceintes Estelon.</p>
+        </div>
+      </article>
+
+      <article class="sys rv">
+        <a class="sys__pic sys__pic--none" href="https://www.kiiaudio.com/" target="_blank" rel="noopener">
+          <b>Kii THREE BXT</b>
+        </a>
+        <div>
+          <h3>Kii Audio</h3>
+          <p class="sys__note">Les Kii THREE BXT, références parmi les enceintes actives à directivité contrôlée, seront associées au streamer GRIMM AUDIO MU1.</p>
+        </div>
+      </article>
+
+      <article class="sys rv">
+        <span class="sys__pic sys__pic--fit">
+          <img loading="lazy" decoding="async" src="assets/JBLMakalu.jpg" alt="Paire d'enceintes JBL Summit Makalu.">
+        </span>
+        <div>
+          <h3>Mark Levinson &amp; JBL</h3>
+          <p class="sys__note">Mark Levinson, marque emblématique revient avec une nouvelle gamme, les N°519, N°626 et N°636 qui alimenteront les toutes nouvelles JBL Summit Makalu, très attendues par les passionnés.</p>
+        </div>
+      </article>
+
+      <article class="sys rv">
+        <a class="sys__pic" href="https://www.raidho.dk/" target="_blank" rel="noopener">
+          <img loading="lazy" decoding="async" src="assets/RAIDHO_X2.8_SPEAKERS.png.jpg" alt="Enceintes Raidho X2.8, vues de face et de trois quarts arrière.">
+          <span class="more">Plus d'infos</span>
+        </a>
+        <div>
+          <h3>Grimm Audio &amp; Raidho</h3>
+          <p class="sys__note">L'ensemble GRIMM AUDIO MU2 et les tout nouveaux blocs mono PA1 feront sublimer les élégantes Raidho X2.8.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ═══ 2) ═════════════════════════════════════════════ -->
+  <section class="part" id="part2">
+    <div class="part__head">
+      <h2 data-lines>Nos coups de coeur</h2>
+      <p class="rv">Parce que la haute fidélité ne se limite pas aux installations les plus exclusives, nous présenterons également des solutions plus accessibles, faciles à intégrer dans un intérieur contemporain, sans faire de compromis sur les performances.</p>
+    </div>
+
+    <div class="systems">
+
+      <article class="sys rv">
+        <div class="sys__pics row">
+          <span class="sys__pic sys__pic--fit"><img loading="lazy" decoding="async" src="assets/Arcam_Radia_SA45_5.jpg" alt="Amplificateur-streamer ARCAM Radia SA45."></span>
+          <span class="sys__pic sys__pic--fit"><img loading="lazy" decoding="async" src="assets/PMCProphecy-Group-news.jpg" alt="Gamme PMC Prophecy : colonnes, centrale et compactes en finition bois clair."></span>
+        </div>
+        <div>
+          <h3>Arcam &amp; PMC</h3>
+          <p class="sys__note">Le nouvel amplificateur-streamer ARCAM SA45, équipé de Dirac Live, sera associé aux nouvelles PMC Prophecy 9.</p>
+        </div>
+      </article>
+
+      <article class="sys rv">
+        <a class="sys__pic" href="https://www.kiiaudio.com/" target="_blank" rel="noopener">
+          <img loading="lazy" decoding="async" src="assets/Kii-Seven-0084-erweitert.jpg" alt="Enceinte active Kii Seven blanche sur pied, dans un intérieur.">
+          <span class="more">Plus d'infos</span>
+        </a>
+        <div>
+          <h3>Kii Seven</h3>
+          <p class="sys__note">Les Kii Seven démontreront tout le potentiel des enceintes actives modernes avec la prise en charge de Qobuz Connect, TIDAL Connect, Spotify Connect, AirPlay, Roon Ready et de nombreuses autres solutions de streaming.</p>
+        </div>
+      </article>
+
+      <article class="sys rv">
+        <span class="sys__pic">
+          <img loading="lazy" decoding="async" src="assets/NAD_M10v3_Streaming_Amplifier_-_DOUGLAS_HIFI.jpg" alt="Amplificateur de streaming NAD M10 v3.">
+        </span>
+        <div>
+          <h3>NAD &bull; Scansonic &bull; JL Audio</h3>
+          <p class="sys__note">Un second système équipé de Dirac Live et Dirac Live Bass Control réunira les Scansonic MB1B, deux caissons JL Audio D108 et le tout nouveau NAD M10 v3.</p>
+        </div>
+      </article>
+
+      <article class="sys rv">
+        <span class="sys__pic">
+          <img loading="lazy" decoding="async" src="assets/Lyngdorf_FR2.jpg" alt="Enceinte murale plate Lyngdorf FR-2.">
+        </span>
+        <div>
+          <h3>Lyngdorf</h3>
+          <p class="sys__lead">Deux configurations seront présentées :</p>
+          <ul class="spec">
+            <li><span class="v">le TDAi-2210 avec les enceintes murales FR-2 ;</span></li>
+            <li><span class="v">le très compact TDAi-1120 associé aux enceintes MH-2 et aux caissons BW-2.</span></li>
+          </ul>
+          <p class="sys__note">Les deux systèmes bénéficieront de la correction acoustique RoomPerfect&trade; de Lyngdorf.</p>
+        </div>
+      </article>
+
+      <article class="sys rv">
+        <div class="sys__pics row">
+          <span class="sys__pic"><img loading="lazy" decoding="async" src="assets/Devialet_Phantom_Ultimate_108dB_LP_TREE_4.jpg" alt="Deux Devialet Phantom Ultimate blanches sur pieds."></span>
+          <span class="sys__pic"><img loading="lazy" decoding="async" src="assets/estelon-aura-1-scaled.jpg" alt="Enceintes Estelon Aura dans un intérieur contemporain."></span>
+        </div>
+        <div>
+          <h3>Devialet/Estelon</h3>
+          <p class="sys__note">Vous pourrez écouter les Phantom 98/108 dB Ultimate, ainsi que les amplificateurs Devialet Astra associés aux enceintes Estelon Aura.</p>
+        </div>
+      </article>
+
+      <article class="sys rv">
+        <a class="sys__pic sys__pic--fit" href="https://www.raidho.dk/products/x1-6" target="_blank" rel="noopener">
+          <img loading="lazy" decoding="async" src="assets/Cyrus80AMPRightCorner-Dynamic.jpg" alt="Amplificateur-streamer Cyrus 80, vue d'angle.">
+          <span class="more">Plus d'infos</span>
+        </a>
+        <div>
+          <h3>Cyrus &amp; Raidho</h3>
+          <p class="sys__note">Le nouvel ampli-streamer Cyrus 80 alimentera les incroyables enceintes compactes Raidho X1.6 Référence.</p>
+        </div>
+      </article>
+
+      <article class="sys rv">
+        <span class="sys__pic sys__pic--none">
+          <b>QUAD 99<br>Eversolo T8<br>PMC Prodigy 5</b>
+        </span>
+        <div>
+          <h3>QUAD &bull; Eversolo &bull; PMC</h3>
+          <p class="sys__note">L'amplificateur QUAD 99, associé au streamer-transport Eversolo T8, sera présenté avec les colonnes PMC Prodigy 5.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ═══ 3) ═════════════════════════════════════════════ -->
+  <section class="part" id="part3">
+    <div class="part__head">
+      <h2 data-lines>Une démonstration Home Cinema inédite</h2>
+      <p class="rv">Nous proposerons également une expérience Home Cinema originale autour du nouveau processeur Trinnov Audio Altitude CI.</p>
+    </div>
+
+    <div class="cine rv">
+      <div>
+        <p>Dans sa configuration de base, il dispose de 8 canaux et peut évoluer, par simple mise à jour logicielle, jusqu'à 32 canaux.</p>
+        <div class="cine__scale">
+          <b>8</b>
+          <i aria-hidden="true">&rarr;</i>
+          <b>32</b>
+          <span>canaux</span>
+        </div>
+      </div>
+      <div class="cine__pic">
+        <img loading="lazy" decoding="async" src="assets/c_alti16--ampli16_rac-1.png" alt="Processeur Trinnov Altitude CI et son amplificateur, empilés en rack.">
+      </div>
+    </div>
+
+    <p class="cine__intro rv">Au cours d'une même démonstration, vous suivrez l'évolution d'un seul système à travers plusieurs configurations :</p>
+
+    <ol class="configs configs--cine">
+      <li class="rv"><h4>stéréo ;</h4></li>
+      <li class="rv"><h4>stéréo avec caissons de graves ;</h4></li>
+      <li class="rv"><h4>Home Cinema 5.2 ;</h4></li>
+      <li class="rv"><h4>Dolby Atmos 5.4.4.</h4></li>
+    </ol>
+
+    <p class="cine__outro rv">Une démonstration immersive qui permettra de comprendre concrètement l'apport de chaque configuration et des technologies de traitement acoustique utilisées.</p>
+  </section>
+
+  <!-- ═══ CLÔTURE ═════════════════════════════════════════ -->
+  <section class="close">
+    <p class="rv">Les 24 &amp; 25 octobre 2026, venez partager avec nous votre passion pour la musique, le cinéma et les plus belles technologies audio et vidéo.</p>
+    <p class="close__sub rv">Nous serons heureux de vous accueillir au Novotel Luxembourg Kirchberg pour cette nouvelle édition de notre Salon Hi-Fi &amp; Home Cinema.</p>
+    <p class="label label--o close__soon rv">more to come &ndash; à suivre !</p>
+    <a class="back rv" href="https://audiophile.lu/"><span aria-hidden="true">&larr;</span> Retour</a>
+  </section>
+
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('salon26');
+  if (!root) return;
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var heads  = [].slice.call(root.querySelectorAll('[data-lines]'));
+  var items  = [].slice.call(root.querySelectorAll('.rv'));
+
+  function show(el) { el.classList.add('is-in'); }
+
+  if (reduce || !('IntersectionObserver' in window)) {
+    heads.concat(items).forEach(show);
+    return;
+  }
+
+  /* ---- split a heading into its rendered lines, each behind its own mask --
+     Words are measured first, grouped by vertical offset, then rebuilt as one
+     masked line per row so the reveal follows the real line breaks.          */
+  function split(el) {
+    var text = el.getAttribute('data-text');
+    if (text === null) {
+      text = el.textContent.replace(/\s+/g, ' ').trim();
+      el.setAttribute('data-text', text);
+    }
+
+    var words = text.split(' ');
+    el.textContent = '';
+    words.forEach(function (w, i) {
+      var span = document.createElement('span');
+      span.textContent = w;
+      el.appendChild(span);
+      if (i < words.length - 1) el.appendChild(document.createTextNode(' '));
+    });
+
+    var lines = [], top = null, line = null;
+    [].slice.call(el.children).forEach(function (span) {
+      var y = Math.round(span.offsetTop);
+      if (top === null || Math.abs(y - top) > 2) { line = []; lines.push(line); top = y; }
+      line.push(span.textContent);
+    });
+
+    el.textContent = '';
+    lines.forEach(function (parts, i) {
+      var mask  = document.createElement('span');
+      var inner = document.createElement('span');
+      mask.className = 'ln';
+      /* trailing space keeps copy/paste and screen readers from running
+         two lines together; it collapses at the end of a block line */
+      inner.textContent = parts.join(' ') + (i < lines.length - 1 ? ' ' : '');
+      inner.style.transitionDelay = (i * 110) + 'ms';
+      mask.appendChild(inner);
+      el.appendChild(mask);
+    });
+  }
+
+  function build() {
+    heads.forEach(function (el) {
+      var wasIn = el.classList.contains('is-in');
+      el.classList.remove('is-in');
+      split(el);
+      if (wasIn) {
+        /* already seen: restore instantly, don't replay the reveal */
+        [].slice.call(el.querySelectorAll('.ln > span')).forEach(function (n) {
+          n.style.transition = 'none';
+          n.style.transitionDelay = '0ms';
+        });
+        el.classList.add('is-in');
+        el.offsetHeight;
+        [].slice.call(el.querySelectorAll('.ln > span')).forEach(function (n) {
+          n.style.transition = '';
+        });
+      }
+    });
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      show(e.target);
+      io.unobserve(e.target);
+    });
+  }, { rootMargin: '0px 0px -40px 0px', threshold: 0.05 });
+
+  /* Safety net: anything sitting inside that bottom margin when the page can
+     scroll no further would otherwise never intersect. Sweep it in by hand. */
+  var pending = [];
+  function sweep() {
+    var vh = window.innerHeight;
+    var atEnd = (vh + window.pageYOffset) >= (document.documentElement.scrollHeight - 4);
+    pending = pending.filter(function (el) {
+      if (el.classList.contains('is-in')) return false;
+      var r = el.getBoundingClientRect();
+      if (atEnd || (r.top < vh && r.bottom > 0)) { show(el); io.unobserve(el); return false; }
+      return true;
+    });
+    if (!pending.length) {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    }
+  }
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () { ticking = false; sweep(); });
+  }
+
+  function start() {
+    build();
+    pending = heads.concat(items);
+    pending.forEach(function (el) { io.observe(el); });
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    sweep();
+  }
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(start);
+    setTimeout(function () { if (!heads.length || heads[0].querySelector('.ln')) return; start(); }, 1200);
+  } else {
+    start();
+  }
+
+  var t;
+  window.addEventListener('resize', function () {
+    clearTimeout(t);
+    t = setTimeout(build, 180);
+  });
+})();
+</script>

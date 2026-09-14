@@ -1,0 +1,14 @@
+{
+  "name": "audiophile-salon-2026",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Page Salon Hi-Fi & Home Cinema — 24 & 25 octobre 2026 — audiophile.lu",
+  "scripts": {
+    "start": "serve --listen 8811 .",
+    "dev": "serve --listen 8811 .",
+    "optimize": "bash scripts/optimize-images.sh"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}
