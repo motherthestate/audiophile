@@ -6,9 +6,10 @@
   "scripts": {
     "start": "serve --listen 8811 .",
     "dev": "serve --listen 8811 .",
-    "optimize": "bash scripts/optimize-images.sh"
+    "pages": "bash scripts/build-pages.sh"
   },
   "devDependencies": {
     "serve": "^14.2.4"
-  }
+  },
+  "homepage": "https://motherthestate.github.io/audiophile/"
 }

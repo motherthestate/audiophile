@@ -1,6 +1,4 @@
 <meta charset="utf-8" />
-<!-- If this markup is pasted into a page whose theme already emits charset /
-     viewport (WordPress does), these two <meta> lines can be dropped. -->
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Salon Hi-Fi &amp; Home Cinema 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -11,17 +9,11 @@
 />
 
 <style>
-  /* ==========================================================
-   Salon Hi-Fi & Home Cinema — 24 & 25 octobre 2026
-   Scoped to #salon26: drops into the existing page without
-   touching header / footer styles.
-   ========================================================== */
-
   #salon26 {
-    --orange: #f09818; /* taken from the show poster */
-    --orange-text: #b0700a; /* same hue, legible at small sizes on white */
-    --ink: #252531; /* site heading colour */
-    --body: #3b3d42; /* site body colour */
+    --orange: #f09818;
+    --orange-text: #b0700a;
+    --ink: #252531;
+    --body: #3b3d42;
     --grey: #7c8088;
     --rule: #e2e2e4;
     --wash: #f6f6f7;
@@ -44,8 +36,6 @@
     box-sizing: border-box;
   }
 
-  /* Smooth in-page jumps from the contents list. If the theme's header is ever
-   made sticky, set --anchor-offset to its height so headings clear it. */
   html {
     scroll-behavior: smooth;
   }
@@ -88,7 +78,6 @@
     margin-bottom: 0;
   }
 
-  /* small uppercase label, used for every eyebrow on the page */
   #salon26 .label {
     font-size: 12px;
     font-weight: 500;
@@ -102,10 +91,6 @@
     color: var(--orange-text);
   }
 
-  /* ---------- motion ----------
-   Headings reveal line by line from behind a mask; everything else rises and
-   fades as it enters the viewport. Both initial states live inside
-   @media (scripting: enabled) so the page is fully visible without JS. */
   @media (scripting: enabled) {
     #salon26 .ln {
       display: block;
@@ -134,7 +119,6 @@
       transform: none;
     }
 
-    /* a short stagger across each grid row */
     #salon26 .systems > .rv:nth-child(3n + 2) {
       transition-delay: 0.09s;
     }
@@ -160,12 +144,6 @@
     }
   }
 
-  /* ---------- 1. title block ----------
-     The masthead is the show's key art rebuilt in the page: the wordmark and
-     the date block are the supplied vector files, everything else is live
-     text on the artwork. The page's only <h1> is therefore read, not drawn —
-     it carries the full title for screen readers and search engines while the
-     design says it once, visually. */
   #salon26 .sr-only {
     position: absolute;
     width: 1px;
@@ -194,13 +172,8 @@
     min-height: clamp(400px, 92vw, 520px);
     color: #fff;
     overflow: hidden;
-    /* the halftone key-art sits over a matching wash, so the block still
-       reads as intended on a slow connection or if the file is missing */
     background-color: #08080a;
     background-image:
-      /* a light scrim over the key side of the frame: the artwork is already
-         near-black there, this only guarantees it stays that way once the
-         photo is cropped for a narrow screen */
       linear-gradient(98deg, rgba(4, 4, 6, 0.74) 0%, rgba(4, 4, 6, 0.4) 46%, rgba(4, 4, 6, 0) 80%),
       url('assets/salon-bg.png'), radial-gradient(120% 95% at 76% 16%, #1a1a20 0%, #08080a 62%);
     background-size: auto, cover, auto;
@@ -266,7 +239,6 @@
     }
   }
 
-  /* ---------- 2. intro + practical info ---------- */
   #salon26 .intro {
     display: grid;
     gap: var(--gap);
@@ -331,7 +303,6 @@
     color: var(--orange-text);
   }
 
-  /* table of contents — plain list, no chrome */
   #salon26 .toc {
     margin: clamp(26px, 4vw, 40px) 0 0;
     padding: 0;
@@ -381,7 +352,6 @@
     }
   }
 
-  /* ---------- sections ---------- */
   #salon26 .part {
     padding: clamp(40px, 6vw, 72px) 0;
     border-bottom: 1px solid var(--rule);
@@ -400,7 +370,6 @@
     margin-top: 14px;
   }
 
-  /* ---------- B&W feature ---------- */
   #salon26 .feature {
     display: grid;
     gap: var(--gap);
@@ -481,7 +450,6 @@
     margin: 10px 0 0;
   }
 
-  /* ---------- spec list ---------- */
   #salon26 .spec {
     list-style: none;
     margin: 0;
@@ -536,7 +504,6 @@
     }
   }
 
-  /* ---------- system grid ---------- */
   #salon26 .systems {
     display: grid;
     gap: clamp(30px, 4vw, 46px) var(--gap);
@@ -572,7 +539,6 @@
     height: 100%;
     object-fit: cover;
   }
-  /* studio shots on a white ground: shown whole, on white, so nothing boxes them in */
   #salon26 .sys__pic--fit {
     background: #fff;
     border: 1px solid var(--rule);
@@ -582,8 +548,6 @@
     padding: 5%;
   }
 
-  /* A system shown through two or three photographs. The block keeps the same
-   4:3 footprint as a single photo so every caption in the row starts level. */
   #salon26 .sys__pics {
     display: grid;
     gap: 8px;
@@ -630,8 +594,6 @@
     color: var(--grey);
   }
 
-  /* Cards whose system has a manufacturer page carry one plainly labelled link,
-   so the destination is named instead of hidden behind the photograph. */
   #salon26 .sys__link {
     width: 100%;
     display: inline-flex;
@@ -667,7 +629,6 @@
     transform: translate(2px, -2px);
   }
 
-  /* ---------- home cinema ---------- */
   #salon26 .cine {
     display: grid;
     gap: var(--gap);
@@ -723,7 +684,6 @@
     color: var(--grey);
   }
 
-  /* ---------- closing ---------- */
   #salon26 .close {
     padding: clamp(36px, 5vw, 60px) 0 clamp(28px, 4vw, 44px);
   }
@@ -759,9 +719,7 @@
 </style>
 
 <div id="salon26">
-  <!-- ═══ TITRE ═══════════════════════════════════════════ -->
   <header class="head">
-    <!-- The key art below states the title; this is its readable twin. -->
     <h1 class="sr-only">
       Salon Hi-Fi &amp; Home Cinema &mdash; 24 &amp; 25 octobre 2026, Novotel Luxembourg-Kirchberg
     </h1>
@@ -824,7 +782,6 @@
     </div>
   </header>
 
-  <!-- ═══ INTRO + INFOS PRATIQUES ═════════════════════════ -->
   <section class="intro">
     <div class="intro__body">
       <p class="intro__lead rv">
@@ -918,13 +875,11 @@
     </aside>
   </section>
 
-  <!-- ═══ 1) ═════════════════════════════════════════════ -->
   <section class="part" id="part1">
     <div class="part__head">
       <h2 data-lines>Les grandes premières et les systèmes de référence</h2>
     </div>
 
-    <!-- Bowers & Wilkins 800 D5 -->
     <div class="feature rv">
       <div class="feature__pics">
         <span class="big">
@@ -1175,7 +1130,6 @@
     </div>
   </section>
 
-  <!-- ═══ 2) ═════════════════════════════════════════════ -->
   <section class="part" id="part2">
     <div class="part__head">
       <h2 data-lines>Nos coups de coeur</h2>
@@ -1368,7 +1322,6 @@
     </div>
   </section>
 
-  <!-- ═══ 3) ═════════════════════════════════════════════ -->
   <section class="part" id="part3">
     <div class="part__head">
       <h2 data-lines>Une démonstration Home Cinema inédite</h2>
@@ -1419,7 +1372,6 @@
     </p>
   </section>
 
-  <!-- ═══ CLÔTURE ═════════════════════════════════════════ -->
   <section class="close">
     <p class="rv">
       Les 24 &amp; 25 octobre 2026, venez partager avec nous votre passion pour la musique, le
@@ -1454,9 +1406,6 @@
       return
     }
 
-    /* ---- split a heading into its rendered lines, each behind its own mask --
-     Words are measured first, grouped by vertical offset, then rebuilt as one
-     masked line per row so the reveal follows the real line breaks.          */
     function split(el) {
       var text = el.getAttribute('data-text')
       if (text === null) {
@@ -1491,8 +1440,6 @@
         var mask = document.createElement('span')
         var inner = document.createElement('span')
         mask.className = 'ln'
-        /* trailing space keeps copy/paste and screen readers from running
-         two lines together; it collapses at the end of a block line */
         inner.textContent = parts.join(' ') + (i < lines.length - 1 ? ' ' : '')
         inner.style.transitionDelay = i * 110 + 'ms'
         mask.appendChild(inner)
@@ -1506,7 +1453,6 @@
         el.classList.remove('is-in')
         split(el)
         if (wasIn) {
-          /* already seen: restore instantly, don't replay the reveal */
           ;[].slice.call(el.querySelectorAll('.ln > span')).forEach(function (n) {
             n.style.transition = 'none'
             n.style.transitionDelay = '0ms'
@@ -1531,8 +1477,6 @@
       { rootMargin: '0px 0px -40px 0px', threshold: 0.05 },
     )
 
-    /* Safety net: anything sitting inside that bottom margin when the page can
-     scroll no further would otherwise never intersect. Sweep it in by hand. */
     var pending = []
     function sweep() {
       var vh = window.innerHeight
