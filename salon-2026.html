@@ -266,9 +266,29 @@
     padding: clamp(20px, 3vw, 28px);
     align-self: start;
   }
-  #salon26 .infos__intro {
-    margin: 12px 0 0;
-    font-size: 0.94rem;
+  #salon26 .infos__list {
+    display: grid;
+    gap: 16px;
+    margin: 18px 0 0;
+  }
+  #salon26 .infos__list dt {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--grey);
+  }
+  #salon26 .infos__list dd {
+    margin: 5px 0 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  #salon26 .infos__list address {
+    font-style: normal;
+    margin: 0;
+  }
+  #salon26 .infos__day {
     color: var(--grey);
   }
   #salon26 .infos address {
@@ -795,7 +815,7 @@
       </p>
       <p class="rv">
         Vous pourrez découvrir, comparer et écouter des systèmes soigneusement sélectionnés et
-        optimisés par notre équipe, dans des conditions de démonstration exceptionelles.
+        optimisés par notre équipe.
       </p>
 
       <ul class="toc rv">
@@ -851,12 +871,37 @@
     </div>
 
     <aside class="infos rv">
-      <p class="label">Parkings &ndash; Adresse</p>
-      <p class="infos__intro">Toutes les Infos ci-dessous dans le QR Code et/ou le lien.</p>
-      <address>
-        6 rue Fort Niedergrünewald, Quartier Européen Nord, Plateau de Kirchberg, L-2226 LUXEMBOURG,
-        Luxembourg
-      </address>
+      <p class="label">Infos pratiques</p>
+      <dl class="infos__list">
+        <dt>Adresse</dt>
+        <dd>
+          <address>
+            Novotel-Kirchberg<br />
+            6 rue Fort Niedergrünewald, Quartier Européen Nord, Plateau de Kirchberg, L-2226
+            Luxembourg
+          </address>
+        </dd>
+
+        <dt>Horaires</dt>
+        <dd>
+          10h00 &ndash; 19h00 <span class="infos__day">(samedi 24.10)</span><br />
+          10h00 &ndash; 18h00 <span class="infos__day">(dimanche 25.10)</span>
+        </dd>
+
+        <dt>Accès</dt>
+        <dd>
+          Arrêt de tram : Europaparlament / Parlement Européen<br />
+          <a class="lnk" href="https://share.google/ZqCYCNWSkzGetO7nj" target="_blank" rel="noopener"
+            >See the map</a
+          >
+        </dd>
+
+        <dt>Parkings</dt>
+        <dd>
+          Parking Novotel<br />
+          Parking Place de l'Europe (Philharmonie)
+        </dd>
+      </dl>
       <div class="infos__qr">
         <img
           loading="lazy"
@@ -869,7 +914,7 @@
           href="https://all.accor.com/hotel/1930/index.en.shtml?utm_campaign=seo+maps&amp;utm_medium=seo+maps&amp;utm_source=google+Maps#section-location"
           target="_blank"
           rel="noopener"
-          >Parkings &ndash; Adresse</a
+          >Novotel Luxembourg Kirchberg</a
         >
       </div>
     </aside>
@@ -927,7 +972,7 @@
             <h4>803 D5</h4>
             <p>
               Les 803 D5 seront mises en œuvre avec l'ensemble Marantz MODEL 10, LINK 10 et SACD 10,
-              reconnu pour sa musicalité, son raffinement et sa puissance.
+              reconnu pour sa musicalité et son raffinement.
             </p>
           </li>
           <li>
@@ -975,8 +1020,8 @@
         <div>
           <h3>Raidho TD3.10</h3>
           <p class="sys__note">
-            Les nouvelles Raidho TD3.10 seront associées aux blocs mono Audio Analogue Absolute Mono
-            500 et à un ensemble MSB assurant le streaming et la conversion numérique-analogique.
+            Les impressionnantes Raidho TD3.10 seront associées aux blocs mono Audio Analogue
+            Absolute Mono 500 et à un streamer-convertisseur MSB Palisade.
           </p>
           <a
             class="sys__link"
@@ -999,56 +1044,6 @@
         </div>
       </article>
 
-      <article class="sys rv">
-        <div class="sys__pics sys__pics--stack">
-          <span class="sys__pic">
-            <img
-              loading="lazy"
-              decoding="async"
-              src="assets/WADAXstudio_collection1-1.jpg"
-              alt="WADAX Studio Player, Studio PSU et Studio Clock empilés."
-            />
-          </span>
-          <div class="row">
-            <span class="sys__pic"
-              ><img
-                loading="lazy"
-                decoding="async"
-                src="assets/Dan_DAgostino_Master_Audio_Systems_Progression_Neo_Series_review_matej_isak_mono_and_stereo_2026_high_end_audiophile_luxury_audio_music_4.jpg"
-                alt="Amplificateur de puissance Dan D'Agostino Progression NEO."
-            /></span>
-            <span class="sys__pic"
-              ><img
-                loading="lazy"
-                decoding="async"
-                src="assets/Estelon%20Forza%20Ultra%20Petra%20Gold.jpg"
-                alt="Paire d'enceintes Estelon Forza Ultra en finition Petra Gold."
-            /></span>
-          </div>
-        </div>
-        <div>
-          <h3>Wadax &bull; Dan D'Agostino &bull; Estelon</h3>
-          <p class="sys__note">
-            Les WADAX Studio Player, Studio PSU et Studio Clock seront combinés au nouvel
-            amplificateur de puissance Dan D'Agostino Progression NEO, afin de mettre en valeur des
-            enceintes Estelon.
-          </p>
-          <a class="sys__link" href="https://wadax.eu/" target="_blank" rel="noopener"
-            >Plus d'infos sur Wadax
-            <svg
-              viewBox="0 0 16 16"
-              aria-hidden="true"
-              focusable="false"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M5.5 10.5 10.5 5.5M6 5.5h4.5V10" /></svg
-          ></a>
-        </div>
-      </article>
 
       <article class="sys rv">
         <span class="sys__pic sys__pic--none">
@@ -1087,29 +1082,89 @@
           />
         </span>
         <div>
-          <h3>Mark Levinson &amp; JBL</h3>
+          <h3>Mark Levinson &bull; JBL</h3>
           <p class="sys__note">
-            Mark Levinson, marque emblématique revient avec une nouvelle gamme, les N°519, N°626 et
-            N°636 qui alimenteront les toutes nouvelles JBL Summit Makalu, très attendues par les
-            passionnés.
+            Mark Levinson, marque emblématique revient avec une nouvelle gamme, les N°626 et N°636
+            qui alimenteront les toutes nouvelles JBL Summit Makalu à pavillon, très attendues par
+            les passionnés.
           </p>
         </div>
       </article>
 
       <article class="sys rv">
-        <span class="sys__pic">
-          <img
-            loading="lazy"
-            decoding="async"
-            src="assets/RAIDHO_X2.8_SPEAKERS.png.jpg"
-            alt="Enceintes Raidho X2.8, vues de face et de trois quarts arrière."
-          />
-        </span>
+        <div class="sys__pics sys__pics--stack">
+          <span class="sys__pic">
+            <img
+              loading="lazy"
+              decoding="async"
+              src="assets/WADAXstudio_collection1-1.jpg"
+              alt="WADAX Studio Player, Studio PSU et Studio Clock empilés."
+            />
+          </span>
+          <div class="row">
+            <span class="sys__pic"
+              ><img
+                loading="lazy"
+                decoding="async"
+                src="assets/Dan_DAgostino_Master_Audio_Systems_Progression_Neo_Series_review_matej_isak_mono_and_stereo_2026_high_end_audiophile_luxury_audio_music_4.jpg"
+                alt="Amplificateur de puissance Dan D'Agostino Progression NEO."
+            /></span>
+            <span class="sys__pic"
+              ><img
+                loading="lazy"
+                decoding="async"
+                src="assets/Estelon%20Forza%20Ultra%20Petra%20Gold.jpg"
+                alt="Paire d'enceintes Estelon Forza Ultra en finition Petra Gold."
+            /></span>
+          </div>
+        </div>
         <div>
-          <h3>Grimm Audio &amp; Raidho</h3>
+          <h3>Wadax &bull; Dan D'Agostino &bull; Estelon</h3>
           <p class="sys__note">
-            L'ensemble GRIMM AUDIO MU2 et les tout nouveaux blocs mono PA1 feront sublimer les
-            élégantes Raidho X2.8.
+            Les WADAX Studio Player, Studio PSU et Studio Clock seront combinés aux nouveaux
+            amplificateurs de puissance mono Dan D'Agostino Progression NEO Mono, afin de mettre en
+            valeur les enceintes Estelon Forza Ultra.
+          </p>
+          <a class="sys__link" href="https://wadax.eu/" target="_blank" rel="noopener"
+            >Plus d'infos sur Wadax
+            <svg
+              viewBox="0 0 16 16"
+              aria-hidden="true"
+              focusable="false"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M5.5 10.5 10.5 5.5M6 5.5h4.5V10" /></svg
+          ></a>
+        </div>
+      </article>
+
+      <article class="sys rv">
+        <div class="sys__pics row">
+          <span class="sys__pic"
+            ><img
+              loading="lazy"
+              decoding="async"
+              src="assets/RAIDHO_X2.8_SPEAKERS.png.jpg"
+              alt="Enceintes Raidho X2.8, vues de face et de trois quarts arrière."
+          /></span>
+          <span class="sys__pic"
+            ><img
+              loading="lazy"
+              decoding="async"
+              src="assets/transrotor-rondino.jpg"
+              alt="Platine vinyle Transrotor Rondino."
+          /></span>
+        </div>
+        <div>
+          <h3>Grimm Audio &bull; Raidho &bull; Transrotor</h3>
+          <p class="sys__note">
+            L'ensemble Grimm Audio MU2 et les tout nouveaux blocs mono PA1 feront sublimer les
+            élégantes Raidho X2.8. Ce système sera également mis en valeur par la sublime Transrotor
+            Rondino et le pré-ampli phono Grimm Audio PW 1.
           </p>
           <a class="sys__link" href="https://www.raidho.dk/" target="_blank" rel="noopener"
             >Plus d'infos sur Raidho
@@ -1159,7 +1214,7 @@
           /></span>
         </div>
         <div>
-          <h3>Arcam &amp; PMC</h3>
+          <h3>Arcam &bull; PMC</h3>
           <p class="sys__note">
             Le nouvel amplificateur-streamer ARCAM SA45, équipé de Dirac Live, sera associé aux
             nouvelles PMC Prophecy 9.
@@ -1180,8 +1235,8 @@
           <h3>Kii Seven</h3>
           <p class="sys__note">
             Les Kii Seven démontreront tout le potentiel des enceintes actives modernes avec la
-            prise en charge de Qobuz Connect, TIDAL Connect, Spotify Connect, AirPlay, Roon Ready et
-            de nombreuses autres solutions de streaming.
+            prise en charge de Qobuz Connect, TIDAL Connect, Spotify Connect, AirPlay et de
+            nombreuses autres solutions de streaming.
           </p>
           <a class="sys__link" href="https://www.kiiaudio.com/" target="_blank" rel="noopener"
             >Plus d'infos sur les Kii Seven
@@ -1246,27 +1301,19 @@
       </article>
 
       <article class="sys rv">
-        <div class="sys__pics row">
-          <span class="sys__pic"
-            ><img
-              loading="lazy"
-              decoding="async"
-              src="assets/Devialet_Phantom_Ultimate_108dB_LP_TREE_4.jpg"
-              alt="Deux Devialet Phantom Ultimate blanches sur pieds."
-          /></span>
-          <span class="sys__pic"
-            ><img
-              loading="lazy"
-              decoding="async"
-              src="assets/estelon-aura-1-scaled.jpg"
-              alt="Enceintes Estelon Aura dans un intérieur contemporain."
-          /></span>
-        </div>
+        <span class="sys__pic">
+          <img
+            loading="lazy"
+            decoding="async"
+            src="assets/Devialet_Phantom_Ultimate_108dB_LP_TREE_4.jpg"
+            alt="Deux Devialet Phantom Ultimate blanches sur pieds."
+          />
+        </span>
         <div>
-          <h3>Devialet/Estelon</h3>
+          <h3>Devialet &bull; JBL</h3>
           <p class="sys__note">
             Vous pourrez écouter les Phantom 98/108 dB Ultimate, ainsi que les amplificateurs
-            Devialet Astra associés aux enceintes Estelon Aura.
+            Devialet Astra associés aux enceintes JBL Summit Ama.
           </p>
         </div>
       </article>
@@ -1281,7 +1328,7 @@
           />
         </span>
         <div>
-          <h3>Cyrus &amp; Raidho</h3>
+          <h3>Cyrus &bull; Raidho</h3>
           <p class="sys__note">
             Le nouvel ampli-streamer Cyrus 80 alimentera les incroyables enceintes compactes Raidho
             X1.6 Référence.
@@ -1308,14 +1355,26 @@
       </article>
 
       <article class="sys rv">
-        <span class="sys__pic sys__pic--none">
-          <b>QUAD 99<br />Eversolo T8<br />PMC Prodigy 5</b>
-        </span>
+        <div class="sys__pics row">
+          <span class="sys__pic sys__pic--fit"
+            ><img
+              loading="lazy"
+              decoding="async"
+              src="assets/MOON371shop-1200x900.jpeg"
+              alt="Amplificateur-streamer Moon 371."
+          /></span>
+          <span class="sys__pic"
+            ><img
+              loading="lazy"
+              decoding="async"
+              src="assets/estelon-aura-1-scaled.jpg"
+              alt="Enceintes Estelon Aura dans un intérieur contemporain."
+          /></span>
+        </div>
         <div>
-          <h3>QUAD &bull; Eversolo &bull; PMC</h3>
+          <h3>Moon &bull; Estelon</h3>
           <p class="sys__note">
-            L'amplificateur QUAD 99, associé au streamer-transport Eversolo T8, sera présenté avec
-            les colonnes PMC Prodigy 5.
+            L'amplificateur-streamer Moon 371 sera associé aux sculpturales colonnes Estelon Aura.
           </p>
         </div>
       </article>
@@ -1324,18 +1383,21 @@
 
   <section class="part" id="part3">
     <div class="part__head">
+      <p class="label label--o rv">Trinnov &bull; Blaze &bull; Dali Speakers &bull; Leica</p>
       <h2 data-lines>Une démonstration Home Cinema inédite</h2>
       <p class="rv">
         Nous proposerons également une expérience Home Cinema originale autour du nouveau processeur
-        Trinnov Audio Altitude CI.
+        Trinnov Audio Altitude CI, des amplis Roksan Caspian et Blaze connectés en Dante et un
+        ensemble d'enceintes Dali Rubikore et caissons de graves JL Audio. L'image sera confiée au
+        projecteur à focale ultra courte Leica Cine 1.
       </p>
     </div>
 
     <div class="cine rv">
       <div>
         <p>
-          Dans sa configuration de base, il dispose de 8 canaux et peut évoluer, par simple mise à
-          jour logicielle, jusqu'à 32 canaux.
+          Dans sa configuration de base, le Trinnov Audio Altitude CI dispose de 8 canaux et peut
+          évoluer, par simple mise à jour logicielle, jusqu'à 32 canaux.
         </p>
         <div class="cine__scale">
           <b>8</b>
