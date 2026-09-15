@@ -524,6 +524,43 @@
     }
   }
 
+  #salon26 .tease {
+    display: grid;
+    gap: clamp(16px, 3vw, 30px);
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
+    margin-bottom: var(--gap);
+    padding: clamp(18px, 3vw, 26px);
+    border: 1px solid var(--rule);
+    background: var(--wash);
+  }
+  @media (min-width: 620px) {
+    #salon26 .tease {
+      grid-template-columns: 150px minmax(0, 1fr);
+    }
+  }
+  #salon26 .tease__logo {
+    display: grid;
+    place-items: center;
+    padding: 18px 16px;
+    background: #fff;
+    border: 1px solid var(--rule);
+  }
+  #salon26 .tease__logo img {
+    width: 100%;
+    max-width: 104px;
+    height: auto;
+  }
+  #salon26 .tease h3 {
+    font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 8px;
+  }
+  #salon26 .tease__date {
+    margin: 0;
+  }
+
   #salon26 .systems {
     display: grid;
     gap: clamp(30px, 4vw, 46px) var(--gap);
@@ -583,6 +620,21 @@
     display: grid;
     gap: 8px;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  #salon26 .sys__pics--split {
+    grid-template-columns: 1.25fr 1fr;
+  }
+  #salon26 .sys__pics--split .col {
+    display: grid;
+    gap: 8px;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+  }
+  /* photo shot on a pure-black ground: show it whole, the bars blend in */
+  #salon26 .sys__pic--dark {
+    background: #000;
+  }
+  #salon26 .sys__pic--dark img {
+    object-fit: contain;
   }
   #salon26 .sys__pics .sys__pic {
     aspect-ratio: auto;
@@ -891,7 +943,11 @@
         <dt>Accès</dt>
         <dd>
           Arrêt de tram : Europaparlament / Parlement Européen<br />
-          <a class="lnk" href="https://share.google/ZqCYCNWSkzGetO7nj" target="_blank" rel="noopener"
+          <a
+            class="lnk"
+            href="https://share.google/ZqCYCNWSkzGetO7nj"
+            target="_blank"
+            rel="noopener"
             >See the map</a
           >
         </dd>
@@ -923,6 +979,17 @@
   <section class="part" id="part1">
     <div class="part__head">
       <h2 data-lines>Les grandes premières et les systèmes de référence</h2>
+    </div>
+
+    <div class="tease rv">
+      <span class="tease__logo">
+        <img loading="lazy" decoding="async" src="assets/linn-logo.svg" alt="Logo LINN." />
+      </span>
+      <div>
+        <p class="label feature__badge">Nouveauté!</p>
+        <h3>Nouveauté surprise de LINN!</h3>
+        <p class="label label--o tease__date">Lancement mondial : 13 octobre!</p>
+      </div>
     </div>
 
     <div class="feature rv">
@@ -1044,7 +1111,6 @@
         </div>
       </article>
 
-
       <article class="sys rv">
         <span class="sys__pic sys__pic--none">
           <b>Kii THREE BXT</b>
@@ -1092,8 +1158,8 @@
       </article>
 
       <article class="sys rv">
-        <div class="sys__pics sys__pics--stack">
-          <span class="sys__pic">
+        <div class="sys__pics sys__pics--split">
+          <span class="sys__pic sys__pic--dark">
             <img
               loading="lazy"
               decoding="async"
@@ -1101,7 +1167,7 @@
               alt="WADAX Studio Player, Studio PSU et Studio Clock empilés."
             />
           </span>
-          <div class="row">
+          <div class="col">
             <span class="sys__pic"
               ><img
                 loading="lazy"
@@ -1315,42 +1381,6 @@
             Vous pourrez écouter les Phantom 98/108 dB Ultimate, ainsi que les amplificateurs
             Devialet Astra associés aux enceintes JBL Summit Ama.
           </p>
-        </div>
-      </article>
-
-      <article class="sys rv">
-        <span class="sys__pic sys__pic--fit">
-          <img
-            loading="lazy"
-            decoding="async"
-            src="assets/Cyrus80AMPRightCorner-Dynamic.jpg"
-            alt="Amplificateur-streamer Cyrus 80, vue d'angle."
-          />
-        </span>
-        <div>
-          <h3>Cyrus &bull; Raidho</h3>
-          <p class="sys__note">
-            Le nouvel ampli-streamer Cyrus 80 alimentera les incroyables enceintes compactes Raidho
-            X1.6 Référence.
-          </p>
-          <a
-            class="sys__link"
-            href="https://www.raidho.dk/products/x1-6"
-            target="_blank"
-            rel="noopener"
-            >Plus d'infos sur les Raidho X1.6
-            <svg
-              viewBox="0 0 16 16"
-              aria-hidden="true"
-              focusable="false"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M5.5 10.5 10.5 5.5M6 5.5h4.5V10" /></svg
-          ></a>
         </div>
       </article>
 
