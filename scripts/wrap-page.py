@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Wrap the WordPress fragment in a standalone document for GitHub Pages.
 
-salon-2026.html is a fragment: no doctype, no <html>, no <head> — WordPress
+index.html is a fragment: no doctype, no <html>, no <head> — WordPress
 supplies those. Served on its own it would parse in quirks mode, so the Pages
 build gets a real document around it. Source of truth stays the fragment.
 """
@@ -9,7 +9,7 @@ build gets a real document around it. Source of truth stays the fragment.
 import io
 import sys
 
-SRC = "salon-2026.html"
+SRC = "index.html"
 MARK = '<div id="salon26">'
 
 SITE = "https://motherthestate.github.io/audiophile/"
