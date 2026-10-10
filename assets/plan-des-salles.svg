@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="80 60 1000 1520" width="1000" height="1520" role="img" aria-labelledby="t">
+  <title id="t">PLAN DES SALLES</title>
+  <defs>
+    <style>
+      text { font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif; fill: #08080a; }
+      .h1 { font-size: 34px; font-weight: 500; letter-spacing: 1px; }
+      .h2 { font-size: 30px; font-weight: 500; letter-spacing: .5px; }
+      .lbl { font-size: 17px; font-weight: 500; letter-spacing: .5px; }
+      .num { font-size: 26px; font-weight: 500; }
+      .sm { font-size: 12px; font-weight: 500; letter-spacing: .5px; }
+      .wall { fill: none; stroke: #08080a; stroke-width: 4; stroke-linejoin: miter; }
+      .mass { fill: #e2e2e4; stroke: #08080a; stroke-width: 1.5; }
+      .room { fill: #fbe2b8; stroke: #08080a; stroke-width: 1.5; }
+      .pill { fill: #fff; stroke: #08080a; stroke-width: 1.2; }
+      .ico { fill: none; stroke: #3b3d42; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+      .icof { fill: #3b3d42; }
+    </style>
+    <pattern id="garden" width="14" height="14" patternUnits="userSpaceOnUse">
+      <rect width="14" height="14" fill="#f6f6f7"/>
+      <circle cx="3.5" cy="3.5" r="1.4" fill="#7c8088"/>
+      <circle cx="10.5" cy="10.5" r="1.4" fill="#7c8088"/>
+    </pattern>
+    <!-- lift -->
+    <symbol id="lift" viewBox="0 0 40 40">
+      <rect x="2" y="2" width="36" height="36" rx="3" class="ico"/>
+      <path d="M10 13l4-5 4 5M22 8l4 5 4-5" class="ico"/>
+      <circle cx="15" cy="19" r="2.4" class="icof"/><circle cx="25" cy="19" r="2.4" class="icof"/>
+      <path d="M12 34V24h6v10M22 34V24h6v10" class="icof"/>
+    </symbol>
+    <!-- toilets -->
+    <symbol id="wc" viewBox="0 0 40 40">
+      <rect x="2" y="2" width="36" height="36" rx="3" class="ico"/>
+      <circle cx="13" cy="10" r="3" class="icof"/><circle cx="27" cy="10" r="3" class="icof"/>
+      <path d="M10 15h6v10h-1.5v9h-3v-9H10zM24 15h6l2 12h-3v7h-4v-7h-3z" class="icof"/>
+      <path d="M20 6v28" class="ico"/>
+    </symbol>
+    <!-- stairs -->
+    <symbol id="stairs-down" viewBox="0 0 40 40">
+      <path d="M2 38V28h9V19h9V10h9V2h9v36z" class="icof"/>
+      <path d="M8 2v15M3 12l5 5 5-5" fill="none" stroke="#08080a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="stairs-up" viewBox="0 0 40 40">
+      <path d="M2 38V28h9V19h9V10h9V2h9v36z" class="icof"/>
+      <path d="M8 17V2M3 7l5-5 5 5" fill="none" stroke="#08080a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </defs>
+
+  <rect x="80" y="60" width="1000" height="1520" fill="#fff"/>
+
+  <text x="578" y="138" text-anchor="middle" class="h1">PLAN DES SALLES</text>
+
+  <!-- ============ RDC ============ -->
+  <text x="222" y="216" class="h2">RDC</text>
+
+  <!-- north row -->
+  <rect x="140" y="232" width="140" height="70" class="mass"/>
+  <rect x="280" y="232" width="138" height="70" class="room"/>
+  <rect x="418" y="232" width="69" height="70" class="mass"/>
+  <use href="#stairs-down" x="428" y="246" width="44" height="44"/>
+  <rect x="487" y="232" width="48" height="70" class="room"/>
+  <rect x="535" y="232" width="46" height="70" class="room"/>
+  <rect x="581" y="232" width="42" height="70" class="room"/>
+  <rect x="623" y="232" width="42" height="70" class="room"/>
+  <rect x="665" y="232" width="40" height="70" class="room"/>
+  <rect x="705" y="232" width="38" height="70" class="room"/>
+  <rect x="743" y="232" width="262" height="70" class="mass"/>
+
+  <!-- south row -->
+  <rect x="140" y="345" width="136" height="98" class="room"/>
+  <rect x="276" y="345" width="142" height="98" class="room"/>
+  <rect x="418" y="345" width="62" height="98" class="mass"/>
+  <use href="#wc" x="436" y="351" width="30" height="30"/>
+  <rect x="480" y="345" width="50" height="98" class="room"/>
+  <rect x="530" y="345" width="42" height="98" class="room"/>
+  <rect x="572" y="345" width="48" height="98" class="mass"/>
+  <use href="#lift" x="580" y="351" width="32" height="32"/>
+  <use href="#lift" x="580" y="397" width="32" height="32"/>
+
+  <!-- east block + laboratory -->
+  <rect x="685" y="345" width="320" height="320" class="mass"/>
+  <use href="#lift" x="711" y="351" width="32" height="32"/>
+  <rect x="685" y="443" width="317" height="222" class="room"/>
+  <rect x="685" y="443" width="253" height="72" class="room"/>
+  <rect x="685" y="515" width="253" height="150" class="mass"/>
+
+  <!-- lobby furniture -->
+  <g class="ico">
+    <rect x="492" y="700" width="26" height="30" rx="2"/>
+    <rect x="492" y="742" width="26" height="30" rx="2"/>
+    <path d="M482 705v20M528 705v20M482 747v20M528 747v20"/>
+    <rect x="556" y="690" width="52" height="14" rx="2"/>
+    <rect x="556" y="716" width="52" height="14" rx="2"/>
+    <rect x="556" y="742" width="52" height="14" rx="2"/>
+    <rect x="556" y="768" width="52" height="14" rx="2"/>
+    <!-- reception desk -->
+    <rect x="782" y="704" width="54" height="30" rx="2"/>
+    <path d="M782 714h54"/>
+    <circle cx="809" cy="694" r="5"/>
+    <!-- entrance door -->
+    <path d="M700 805v-34h36v34"/>
+    <!-- arrow -->
+    <path d="M982 765h22M996 758l8 7-8 7"/>
+  </g>
+  <use href="#stairs-down" x="920" y="694" width="30" height="30"/>
+  <text x="974" y="770" text-anchor="end" class="sm">BAR</text>
+
+  <!-- level 2 walls -->
+  <path d="M140 232H1005V805H460V665H620V443H140Z" class="wall"/>
+
+  <!-- level 2 labels -->
+  <rect x="294" y="249" width="110" height="34" rx="17" class="pill"/>
+  <text x="349" y="272" text-anchor="middle" class="lbl">STUDIO C</text>
+  <rect x="148" y="380" width="120" height="34" rx="17" class="pill"/>
+  <text x="208" y="403" text-anchor="middle" class="lbl">STUDIO B</text>
+  <rect x="285" y="377" width="124" height="34" rx="17" class="pill"/>
+  <text x="347" y="400" text-anchor="middle" class="lbl">STUDIO A</text>
+
+  <g class="num" text-anchor="middle">
+    <text transform="translate(502 267) rotate(90)">203</text>
+    <text transform="translate(549 267) rotate(90)">205</text>
+    <text transform="translate(593 267) rotate(90)">207</text>
+    <text transform="translate(635 267) rotate(90)">209</text>
+    <text transform="translate(676 267) rotate(90)">211</text>
+    <text transform="translate(715 267) rotate(90)">213</text>
+    <text transform="translate(496 394) rotate(90)">204</text>
+    <text transform="translate(542 394) rotate(90)">206</text>
+  </g>
+
+
+  <rect x="705" y="461" width="213" height="36" rx="18" class="pill"/>
+  <text x="811" y="485" text-anchor="middle" class="lbl">THE LAB</text>
+  <rect x="953" y="458" width="34" height="192" rx="17" class="pill"/>
+  <text transform="translate(976 554) rotate(-90)" text-anchor="middle" class="sm">THE LABORATORY</text>
+
+  <!-- ============ -1 ============ -->
+  <text x="208" y="852" class="h2">-1</text>
+
+  <!-- north row -->
+  <rect x="120" y="868" width="910" height="94" class="mass"/>
+  <use href="#stairs-up" x="424" y="900" width="44" height="44"/>
+
+  <!-- second row -->
+  <rect x="120" y="1000" width="458" height="110" class="mass"/>
+  <rect x="578" y="1000" width="42" height="110" class="mass"/>
+  <use href="#lift" x="583" y="1010" width="32" height="32"/>
+  <use href="#lift" x="583" y="1060" width="32" height="32"/>
+  <rect x="705" y="1000" width="325" height="115" class="mass"/>
+  <use href="#lift" x="718" y="1020" width="32" height="32"/>
+
+  <!-- terrace garden -->
+  <rect x="120" y="1110" width="500" height="420" fill="url(#garden)" stroke="#08080a" stroke-width="1.5"/>
+
+  <!-- the gallery -->
+  <rect x="312" y="1268" width="308" height="242" class="room"/>
+
+  <!-- east block -->
+  <path d="M705 1115H1030V1530H620V1510H620V1440H860V1505H920V1410H705Z" class="mass"/>
+  <rect x="705" y="1185" width="200" height="85" class="room"/>
+  <use href="#wc" x="738" y="1348" width="36" height="36"/>
+  <use href="#wc" x="842" y="1348" width="36" height="36"/>
+  <use href="#stairs-up" x="864" y="1448" width="52" height="52"/>
+
+  <!-- level 1 walls -->
+  <path d="M120 868H1030V1530H120Z" class="wall"/>
+
+  <!-- level 1 labels -->
+  <rect x="432" y="1150" width="130" height="62" rx="20" class="pill"/>
+  <text x="497" y="1176" text-anchor="middle" class="lbl">TERRASSE</text>
+  <text x="497" y="1200" text-anchor="middle" class="lbl">GARDEN</text>
+
+
+  <rect x="725" y="1209" width="162" height="36" rx="18" class="pill"/>
+  <text x="806" y="1233" text-anchor="middle" class="lbl">THE BOX</text>
+
+  <rect x="378" y="1371" width="176" height="36" rx="18" class="pill"/>
+  <text x="466" y="1395" text-anchor="middle" class="lbl">THE GALLERY</text>
+
+  <text x="810" y="1422" text-anchor="middle" class="sm">ACCÈS</text>
+  <text x="810" y="1436" text-anchor="middle" class="sm">RDC</text>
+
+  <!-- north -->
+  <path d="M1026 1552q16-14 40-18" class="ico"/>
+  <text x="1046" y="1574" text-anchor="middle" class="h2" style="font-size:26px">N</text>
+</svg>
