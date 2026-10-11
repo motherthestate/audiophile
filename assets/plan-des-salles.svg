@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="80 60 1000 1520" width="1000" height="1520" role="img" aria-labelledby="t">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="80 60 1000 1500" width="1000" height="1500" role="img" aria-labelledby="t">
   <title id="t">PLAN DES SALLES</title>
   <defs>
     <style>
@@ -45,7 +45,7 @@
     </symbol>
   </defs>
 
-  <rect x="80" y="60" width="1000" height="1520" fill="#fff"/>
+  <rect x="80" y="60" width="1000" height="1500" fill="#fff"/>
 
   <text x="578" y="138" text-anchor="middle" class="h1">PLAN DES SALLES</text>
 
@@ -76,12 +76,10 @@
   <use href="#lift" x="580" y="351" width="32" height="32"/>
   <use href="#lift" x="580" y="397" width="32" height="32"/>
 
-  <!-- east block + laboratory -->
+  <!-- east block + lab -->
   <rect x="685" y="345" width="320" height="320" class="mass"/>
   <use href="#lift" x="711" y="351" width="32" height="32"/>
-  <rect x="685" y="443" width="317" height="222" class="room"/>
   <rect x="685" y="443" width="253" height="72" class="room"/>
-  <rect x="685" y="515" width="253" height="150" class="mass"/>
 
   <!-- lobby furniture -->
   <g class="ico">
@@ -101,7 +99,7 @@
     <!-- arrow -->
     <path d="M982 765h22M996 758l8 7-8 7"/>
   </g>
-  <use href="#stairs-down" x="920" y="694" width="30" height="30"/>
+  <use href="#stairs-down" x="855" y="764" width="30" height="30"/>
   <text x="974" y="770" text-anchor="end" class="sm">BAR</text>
 
   <!-- level 2 walls -->
@@ -129,56 +127,53 @@
 
   <rect x="705" y="461" width="213" height="36" rx="18" class="pill"/>
   <text x="811" y="485" text-anchor="middle" class="lbl">THE LAB</text>
-  <rect x="953" y="458" width="34" height="192" rx="17" class="pill"/>
-  <text transform="translate(976 554) rotate(-90)" text-anchor="middle" class="sm">THE LABORATORY</text>
 
   <!-- ============ -1 ============ -->
-  <text x="208" y="852" class="h2">-1</text>
+  <text x="222" y="852" class="h2">-1</text>
 
-  <!-- north row -->
-  <rect x="120" y="868" width="910" height="94" class="mass"/>
-  <use href="#stairs-up" x="424" y="900" width="44" height="44"/>
+  <!-- north row (same grid as RDC) -->
+  <rect x="140" y="868" width="865" height="70" class="mass"/>
+  <use href="#stairs-up" x="428" y="881" width="44" height="44"/>
 
   <!-- second row -->
-  <rect x="120" y="1000" width="458" height="110" class="mass"/>
-  <rect x="578" y="1000" width="42" height="110" class="mass"/>
-  <use href="#lift" x="583" y="1010" width="32" height="32"/>
-  <use href="#lift" x="583" y="1060" width="32" height="32"/>
-  <rect x="705" y="1000" width="325" height="115" class="mass"/>
-  <use href="#lift" x="718" y="1020" width="32" height="32"/>
+  <rect x="140" y="981" width="432" height="98" class="mass"/>
+  <rect x="572" y="981" width="48" height="98" class="mass"/>
+  <use href="#lift" x="580" y="987" width="32" height="32"/>
+  <use href="#lift" x="580" y="1033" width="32" height="32"/>
+  <rect x="685" y="981" width="320" height="98" class="mass"/>
+  <use href="#lift" x="711" y="987" width="32" height="32"/>
 
   <!-- terrace garden -->
-  <rect x="120" y="1110" width="500" height="420" fill="url(#garden)" stroke="#08080a" stroke-width="1.5"/>
+  <rect x="140" y="1079" width="480" height="420" fill="url(#garden)" stroke="#08080a" stroke-width="1.5"/>
 
   <!-- the gallery -->
-  <rect x="312" y="1268" width="308" height="242" class="room"/>
+  <rect x="312" y="1237" width="308" height="242" class="room"/>
 
   <!-- east block -->
-  <path d="M705 1115H1030V1530H620V1510H620V1440H860V1505H920V1410H705Z" class="mass"/>
-  <rect x="705" y="1185" width="200" height="85" class="room"/>
-  <use href="#wc" x="738" y="1348" width="36" height="36"/>
-  <use href="#wc" x="842" y="1348" width="36" height="36"/>
-  <use href="#stairs-up" x="864" y="1448" width="52" height="52"/>
+  <path d="M685 1079H1005V1499H620V1479H620V1409H840V1474H900V1379H685Z" class="mass"/>
+  <rect x="685" y="1154" width="200" height="85" class="room"/>
+  <use href="#wc" x="718" y="1317" width="36" height="36"/>
+  <use href="#wc" x="822" y="1317" width="36" height="36"/>
+  <use href="#stairs-up" x="844" y="1417" width="52" height="52"/>
 
   <!-- level 1 walls -->
-  <path d="M120 868H1030V1530H120Z" class="wall"/>
+  <path d="M140 868H1005V1499H140Z" class="wall"/>
 
   <!-- level 1 labels -->
-  <rect x="432" y="1150" width="130" height="62" rx="20" class="pill"/>
-  <text x="497" y="1176" text-anchor="middle" class="lbl">TERRASSE</text>
-  <text x="497" y="1200" text-anchor="middle" class="lbl">GARDEN</text>
+  <rect x="432" y="1119" width="130" height="62" rx="20" class="pill"/>
+  <text x="497" y="1145" text-anchor="middle" class="lbl">TERRASSE</text>
+  <text x="497" y="1169" text-anchor="middle" class="lbl">GARDEN</text>
 
+  <rect x="705" y="1178" width="162" height="36" rx="18" class="pill"/>
+  <text x="786" y="1202" text-anchor="middle" class="lbl">THE BOX</text>
 
-  <rect x="725" y="1209" width="162" height="36" rx="18" class="pill"/>
-  <text x="806" y="1233" text-anchor="middle" class="lbl">THE BOX</text>
+  <rect x="378" y="1340" width="176" height="36" rx="18" class="pill"/>
+  <text x="466" y="1364" text-anchor="middle" class="lbl">THE GALLERY</text>
 
-  <rect x="378" y="1371" width="176" height="36" rx="18" class="pill"/>
-  <text x="466" y="1395" text-anchor="middle" class="lbl">THE GALLERY</text>
-
-  <text x="810" y="1422" text-anchor="middle" class="sm">ACCÈS</text>
-  <text x="810" y="1436" text-anchor="middle" class="sm">RDC</text>
+  <text x="790" y="1391" text-anchor="middle" class="sm">ACCÈS</text>
+  <text x="790" y="1405" text-anchor="middle" class="sm">RDC</text>
 
   <!-- north -->
-  <path d="M1026 1552q16-14 40-18" class="ico"/>
-  <text x="1046" y="1574" text-anchor="middle" class="h2" style="font-size:26px">N</text>
+  <path d="M1006 1521q16-14 40-18" class="ico"/>
+  <text x="1026" y="1543" text-anchor="middle" class="h2" style="font-size:26px">N</text>
 </svg>

@@ -17,7 +17,7 @@ K = float(ARGS[1]) if len(ARGS) > 1 else 0.52                # vertical squash
 GAP = float(ARGS[2]) if len(ARGS) > 2 else 360               # screen distance between floors
 SLAB = 8 if ELEGANT else 14                                   # floor thickness, px
 WALL = 10                                                     # low wall height, px
-DY = -660                                                     # aligns -1 onto RDC's grid
+DY = -636                                                     # -1 top (868) onto RDC top (232)
 CX, CY = 575, 520                                             # plan centre
 
 t = math.radians(THETA)
@@ -59,7 +59,6 @@ STYLE = """
       .studio-b { fill: #bfa8ec; }
       .studio-c { fill: #f5a3bb; }
       .lab { fill: #f7b955; }
-      .laboratory { fill: #c98a2e; }
       .box { fill: #8db7f0; }
       .gallery { fill: #f3a07f; }
       .pill { fill: #16130f; stroke: #aaa196; stroke-width: 1; }
@@ -73,12 +72,11 @@ STYLE = """
 STYLE_ELEGANT = """
       text { font-family: Geist, 'Helvetica Neue', Helvetica, Arial, sans-serif; fill: #f2f3f4; }
       .h1 { font-size: 30px; font-weight: 400; letter-spacing: 10px; }
-      .h2 { font-size: 24px; font-weight: 400; letter-spacing: 5px; fill: #c4c6c9; }
+      .h2 { font-size: 46px; font-weight: 400; letter-spacing: 4px; fill: #e6e7e9; }
       .lbl { font-size: 16px; font-weight: 500; letter-spacing: 1.5px; fill: #f2f3f4; }
       .pill { fill: #111214; fill-opacity: .86; }
       .num { font-size: 22px; font-weight: 500; letter-spacing: .5px; fill: #111214; opacity: .75; }
       .sm { font-size: 13px; font-weight: 500; letter-spacing: 2px; }
-      .lab-tag { font-size: 13px; font-weight: 500; letter-spacing: 2.5px; fill: #111214; opacity: .75; }
       .wall { display: none; }
       .mass { fill: #55585c; }
       .room { fill: #a7aaae; }
@@ -86,9 +84,16 @@ STYLE_ELEGANT = """
       .studio-b { fill: #a99cc4; }
       .studio-c { fill: #d39aa6; }
       .lab { fill: #d9a75a; }
-      .laboratory { fill: #bf9255; }
       .box { fill: #8aa3c4; }
       .gallery { fill: #cf8f73; }
+      .r203 { fill: #c9b26c; }
+      .r205 { fill: #9fb9d8; }
+      .r207 { fill: #c39cba; }
+      .r209 { fill: #98c29f; }
+      .r211 { fill: #d8ad8a; }
+      .r213 { fill: #a5a9d6; }
+      .r204 { fill: #b8c57b; }
+      .r206 { fill: #7fb5c4; }
       .cap { fill: none; stroke: #fff; stroke-opacity: .28; stroke-width: .8; }
       .badge { fill: #f2f3f4; }
       .glyph { fill: #111214; }
@@ -105,8 +110,10 @@ def font_face(weight, file):
 
 # wall base colour per room class (elegant): faces are shades of the room they bound
 WALL_BASE = {"outer": "#95989c", "mass": "#63666a", "room": "#a7aaae", "studio-a": "#8fb8ad",
-             "studio-b": "#a99cc4", "studio-c": "#d39aa6", "lab": "#d9a75a", "laboratory": "#bf9255",
-             "box": "#8aa3c4", "gallery": "#cf8f73"}
+             "studio-b": "#a99cc4", "studio-c": "#d39aa6", "lab": "#d9a75a",
+             "box": "#8aa3c4", "gallery": "#cf8f73",
+             "r203": "#c9b26c", "r205": "#9fb9d8", "r207": "#c39cba", "r209": "#98c29f",
+             "r211": "#d8ad8a", "r213": "#a5a9d6", "r204": "#b8c57b", "r206": "#7fb5c4"}
 PRIORITY = ["mass", "room", "named", "outer"]
 
 
@@ -118,7 +125,7 @@ def shade(hex_, f):
 
 # ---------- in-plane content (plan coordinates; -1 shifted by DY) ----------
 RDC_OUTLINE = "M140 232H1005V805H460V665H620V443H140Z"
-M1_OUTLINE = "M120 208H1030V870H120Z"
+M1_OUTLINE = "M140 232H1005V863H140Z"
 
 RDC_PLANE = """
   <rect x="140" y="232" width="140" height="70" class="mass"/>
@@ -138,9 +145,7 @@ RDC_PLANE = """
   <rect x="530" y="345" width="42" height="98" class="room"/>
   <rect x="572" y="345" width="48" height="98" class="mass"/>
   <rect x="685" y="345" width="320" height="320" class="mass"/>
-  <rect x="685" y="443" width="317" height="222" class="room laboratory"/>
   <rect x="685" y="443" width="253" height="72" class="room lab"/>
-  <rect x="685" y="515" width="253" height="150" class="mass"/>
   <g class="ico">
     <rect x="492" y="700" width="26" height="30" rx="2"/>
     <rect x="492" y="742" width="26" height="30" rx="2"/>
@@ -168,20 +173,18 @@ RDC_RAISED = """
     <text transform="translate(496 394) rotate(90)">204</text>
     <text transform="translate(542 394) rotate(90)">206</text>
   </g>
-  <rect x="953" y="458" width="34" height="192" rx="17" class="pill"/>
-  <text transform="translate(966 554) rotate(90)" text-anchor="middle" class="sm">THE LABORATORY</text>
 """
 
 M1_PLANE = f"""
  <g transform="translate(0 {DY})">
-  <rect x="120" y="868" width="910" height="94" class="mass"/>
-  <rect x="120" y="1000" width="458" height="110" class="mass"/>
-  <rect x="578" y="1000" width="42" height="110" class="mass"/>
-  <rect x="705" y="1000" width="325" height="115" class="mass"/>
-  <rect x="120" y="1110" width="500" height="420" fill="url(#garden)" stroke="#16130f" stroke-width="1.5"/>
-  <rect x="312" y="1268" width="308" height="242" class="room gallery"/>
-  <path d="M705 1115H1030V1530H620V1510H620V1440H860V1505H920V1410H705Z" class="mass"/>
-  <rect x="705" y="1185" width="200" height="85" class="room box"/>
+  <rect x="140" y="868" width="865" height="70" class="mass"/>
+  <rect x="140" y="981" width="432" height="98" class="mass"/>
+  <rect x="572" y="981" width="48" height="98" class="mass"/>
+  <rect x="685" y="981" width="320" height="98" class="mass"/>
+  <rect x="140" y="1079" width="480" height="420" fill="url(#garden)" stroke="#16130f" stroke-width="1.5"/>
+  <rect x="312" y="1237" width="308" height="242" class="room gallery"/>
+  <path d="M685 1079H1005V1499H620V1479H620V1409H840V1474H900V1379H685Z" class="mass"/>
+  <rect x="685" y="1154" width="200" height="85" class="room box"/>
  </g>
 """
 
@@ -192,26 +195,26 @@ def m1(x, y):
 # (glyph, x, y, stair direction or None)
 ICONS = {
     "rdc": [("stairs", 450, 268, "down"), ("restroom", 451, 370, None), ("elevator", 596, 400, None),
-            ("elevator", 727, 372, None), ("stairs", 922, 708, "down"),
+            ("elevator", 727, 372, None), ("stairs", 870, 790, "down"),
             ("call-bell", 809, 712, None), ("martini", 972, 752, None)],
-    "m1": [("stairs", *m1(446, 922), "up"), ("elevator", *m1(599, 1060), None),
-           ("elevator", *m1(734, 1040), None), ("restroom", *m1(756, 1370), None), ("restroom", *m1(860, 1370), None),
-           ("stairs", *m1(890, 1478), "up")],
+    "m1": [("stairs", *m1(450, 904), "up"), ("elevator", *m1(596, 1036), None),
+           ("elevator", *m1(727, 1008), None), ("restroom", *m1(736, 1339), None), ("restroom", *m1(840, 1339), None),
+           ("stairs", *m1(870, 1426), "up")],
 }
 PILLS = {
     "rdc": [(["STUDIO C"], 349, 266, 110), (["STUDIO B"], 208, 397, 120), (["STUDIO A"], 347, 394, 124),
             (["THE LAB"], 811, 479, 150)],
-    "m1": [(["TERRASSE", "GARDEN"], *m1(497, 1181), 120), (["THE BOX"], *m1(806, 1227), 120),
-           (["THE GALLERY"], *m1(466, 1389), 150)],
+    "m1": [(["TERRASSE", "GARDEN"], *m1(497, 1150), 120), (["THE BOX"], *m1(786, 1196), 120),
+           (["THE GALLERY"], *m1(466, 1358), 150)],
 }
 SMALL = {
     "rdc": [(["BAR"], 972, 780)],
-    "m1": [(["ACCÈS", "RDC"], *m1(810, 1425))],
+    "m1": [(["ACCÈS", "RDC"], *m1(790, 1394))],
 }
 # vertical cores shared by both floors: lifts and the main stair
-CORES = [(596, 400), (730, 375), (448, 268)]
+CORES = [(596, 400), (727, 372), (450, 268), (870, 790)]
 # links whose ends sit at different plan points: lobby stairs (RDC) -> ACCÈS RDC stairs (-1)
-LINKS = [((922, 708), m1(890, 1478))]
+LINKS = []
 
 R = 24 if ELEGANT else 19  # badge radius
 
@@ -219,11 +222,13 @@ if ELEGANT:
     STYLE = STYLE_ELEGANT
     RDC_PLANE = re.sub(r'<g class="ico">.*?</g>', "", RDC_PLANE, flags=re.S)  # no furniture
     M1_PLANE = M1_PLANE.replace(' stroke="#16130f" stroke-width="1.5"', "")      # no outline on the terrace
+    for n, x, y in (("203", 487, 232), ("205", 535, 232), ("207", 581, 232), ("209", 623, 232),
+                    ("211", 665, 232), ("213", 705, 232), ("204", 480, 345), ("206", 530, 345)):
+        RDC_PLANE = re.sub(rf'(<rect x="{x}" y="{y}" [^>]*class="room)"', rf'\1 r{n}"', RDC_PLANE)
     NUMS = [("203", 511, 267), ("205", 558, 267), ("207", 602, 267), ("209", 644, 267),
             ("211", 685, 267), ("213", 724, 267), ("204", 505, 394), ("206", 551, 394)]
     RDC_RAISED = "".join(f'<text transform="translate({x} {y}) rotate(90)" dy=".35em" text-anchor="middle" class="num">{n}</text>'
                          for n, x, y in NUMS)
-    RDC_RAISED += '<text transform="translate(970 554) rotate(90)" dy=".35em" text-anchor="middle" class="lab-tag">THE LABORATORY</text>'
 
 
 
@@ -259,18 +264,46 @@ def loop(pts):
             yield a, b
 
 
+def split_edges(edges):
+    """Cut collinear walls at every breakpoint so each piece takes the colour of the room it bounds
+    (a room's own wall wins over the outer wall, which wins over unlabelled blocks)."""
+    order = {"mass": 0, "outer": 1, "room": 2}
+    lines = {}
+    for a, b, kind in edges:
+        if a[1] == b[1]:
+            key, lo, hi = ("h", a[1]), min(a[0], b[0]), max(a[0], b[0])
+        else:
+            key, lo, hi = ("v", a[0]), min(a[1], b[1]), max(a[1], b[1])
+        lines.setdefault(key, []).append((lo, hi, kind))
+    out = {}
+    for (axis, c), spans in lines.items():
+        cuts = sorted({v for lo, hi, _ in spans for v in (lo, hi)})
+        for p, q in zip(cuts, cuts[1:]):
+            m = (p + q) / 2
+            kinds = [k for lo, hi, k in spans if lo <= m <= hi]
+            if not kinds:
+                continue
+            kind = max(kinds, key=lambda k: order.get(k, 3))
+            a, b = ((p, c), (q, c)) if axis == "h" else ((c, p), (c, q))
+            out[(a, b)] = kind
+    return out
+
+
 def walls(plane, outline, dy):
     """Low extruded walls along every room edge, painted back to front."""
     def rank(kind):
         return PRIORITY.index(kind if kind in ("mass", "room", "outer") else "named")
 
     edges = {}
-    for a, b, kind in rect_edges(plane, dy):
-        key = tuple(sorted((a, b)))
-        if key not in edges or rank(kind) > rank(edges[key]):
-            edges[key] = kind
-    for a, b in loop(poly(outline)):
-        edges[tuple(sorted((a, b)))] = "outer"
+    if ELEGANT:
+        edges = split_edges(list(rect_edges(plane, dy)) + [(a, b, "outer") for a, b in loop(poly(outline))])
+    else:
+        for a, b, kind in rect_edges(plane, dy):
+            key = tuple(sorted((a, b)))
+            if key not in edges or rank(kind) > rank(edges[key]):
+                edges[key] = kind
+        for a, b in loop(poly(outline)):
+            edges[tuple(sorted((a, b)))] = "outer"
     faces = []
     for (a, b), kind in edges.items():
         (ax, ay), (bx, by) = proj(*a), proj(*b)
@@ -339,7 +372,7 @@ def floor(key, outline, plane, dy=0, raised=""):
     return "\n".join(out)
 
 
-EXTENTS = {"rdc": ((140, 1005), (232, 805)), "m1": ((120, 1030), (208, 870))}
+EXTENTS = {"rdc": ((140, 1005), (232, 805)), "m1": ((140, 1005), (232, 863))}
 
 
 def corners(key):
@@ -350,8 +383,8 @@ def corners(key):
 def level_label(key, text):
     lx, ly = min(corners(key))
     if ELEGANT:
-        return (f'<path d="M{lx - 50:.1f} {ly:.1f}H{lx - 10:.1f}" stroke="#c4c6c9" stroke-opacity=".5" stroke-width=".8"/>'
-                f'<text x="{lx - 64:.1f}" y="{ly + 8:.1f}" text-anchor="end" class="h2">{text}</text>')
+        return (f'<path d="M{lx - 56:.1f} {ly:.1f}H{lx - 10:.1f}" stroke="#c4c6c9" stroke-opacity=".5" stroke-width=".8"/>'
+                f'<text x="{lx - 72:.1f}" y="{ly + 16:.1f}" text-anchor="end" class="h2">{text}</text>')
     return f'<text x="{lx - 24:.1f}" y="{ly + 10:.1f}" text-anchor="end" class="h2">{text}</text>'
 
 
@@ -359,8 +392,10 @@ pts = corners("rdc") + corners("m1")
 x0, y0 = min(p[0] for p in pts), min(p[1] for p in pts)
 x1, y1 = max(p[0] for p in pts), max(p[1] for p in pts)
 pad = 70
-vx, vy = x0 - pad - 60, y0 - pad - 90
-vw, vh = (x1 - x0) + 2 * pad + 60, (y1 - y0) + 2 * pad + 90 + SLAB + 30
+side = 190 if ELEGANT else 60  # room for the level labels
+top = 0 if ELEGANT else 90     # room for the title
+vx, vy = x0 - pad - side, y0 - pad - top
+vw, vh = (x1 - x0) + 2 * pad + side, (y1 - y0) + 2 * pad + top + SLAB + 30
 
 cores = []
 for x, y in CORES:
@@ -399,7 +434,7 @@ svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="{vx:.0f} {vy:.0f} {vw
     <filter id="glow" x="-20%" y="-30%" width="140%" height="160%"><feGaussianBlur stdDeviation="22"/></filter>
   </defs>
   <rect x="{vx:.0f}" y="{vy:.0f}" width="{vw:.0f}" height="{vh:.0f}" fill="{"url(#bg)" if ELEGANT else "#24201c"}"/>
-  <text x="{vx + vw / 2:.1f}" y="{vy + 70:.1f}" text-anchor="middle" class="h1">PLAN DES SALLES</text>
+  {"" if ELEGANT else f'<text x="{vx + vw / 2:.1f}" y="{vy + 70:.1f}" text-anchor="middle" class="h1">PLAN DES SALLES</text>'}
 {floor("m1", M1_OUTLINE, M1_PLANE, DY)}
 {level_label("m1", "-1")}
 <g>{''.join(cores)}</g>
